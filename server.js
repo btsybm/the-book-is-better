@@ -23,6 +23,9 @@ import('./config/passport.js')
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as booksRouter } from './routes/books.js'
+import { router as profilesRouter } from './routes/profiles.js'
+import { router as moviesRouter } from './routes/movies.js'
+
 
 // view engine setup
 app.set(
@@ -65,6 +68,10 @@ app.use(passUserToView)
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/books', booksRouter)
+app.use('/profiles', profilesRouter)
+app.use('/movies', moviesRouter)
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

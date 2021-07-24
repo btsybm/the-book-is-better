@@ -4,6 +4,8 @@ export {
   User
 }
 
+const Schema = mongoose.Schema
+
 const userSchema = new mongoose.Schema(
   {
     email: String,

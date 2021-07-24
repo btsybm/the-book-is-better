@@ -1,0 +1,10 @@
+import { Router } from 'express'
+const router = Router()
+import * as moviesCtrl from '../controllers/movies.js'
+
+export {
+  router
+}
+
+
+// router.get('/new', moviesCtrl.new)
