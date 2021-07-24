@@ -25,6 +25,8 @@ import { router as authRouter } from './routes/auth.js'
 import { router as booksRouter } from './routes/books.js'
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as moviesRouter } from './routes/movies.js'
+import { router as authorsRouter } from './routes/authors.js'
+import { router as reviewsRouter } from './routes/reviews.js'
 
 
 // view engine setup
@@ -70,6 +72,8 @@ app.use('/auth', authRouter)
 app.use('/books', booksRouter)
 app.use('/profiles', profilesRouter)
 app.use('/movies', moviesRouter)
+app.use('/authors', authorsRouter)
+app.use('/reviews', reviewsRouter)
 
 
 
