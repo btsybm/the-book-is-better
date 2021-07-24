@@ -7,4 +7,5 @@ export {
 }
 
 
-// router.get('/new', moviesCtrl.new)
+// GET localhost:3000/movies/new
+router.get('/new', moviesCtrl.new)
