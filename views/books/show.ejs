@@ -1,0 +1,26 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/books/new.css" />
+<%- include('../partials/nav') %>
+
+
+<main>
+  <!-- <h1><%= title %></h1> -->
+
+  <section>
+    <div>Title: </div>
+    <div><%= book.title %></div>
+    <div>Author: </div>
+    <div><%= book.author %></div>
+    
+    <div>Adaptations:</div>
+    <!-- <div>(how to display from movie model with title as sourceMaterial</div> -->
+
+    <div>
+      <img src="<% book.imageUrl %>" alt="<%= book.title %>">
+    </div>
+    
+  </section>
+
+</main>
+
+<%- include("../partials/footer") %>

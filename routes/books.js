@@ -9,11 +9,11 @@ export {
 // GET localhost:3000/books/new
 router.get('/new', booksCtrl.new);
 
-// POST localhost:3000/books
-router.post('/', booksCtrl.create); 
-
 // GET localhost:3000/movies
 router.get('/', booksCtrl.index)
 
+// GET localhost:3000/movies/:id
+router.get('/:id', booksCtrl.show)
 
-
+// POST localhost:3000/books
+router.post('/', booksCtrl.create); 
