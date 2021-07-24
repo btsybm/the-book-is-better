@@ -7,7 +7,10 @@ export {
 }
 
 // GET localhost:3000/books/new
-router.get('/new', booksCtrl.new)
+router.get('/new', booksCtrl.new);
+
+// POST localhost:3000/books
+router.post('/', booksCtrl.create); 
 
 
 
