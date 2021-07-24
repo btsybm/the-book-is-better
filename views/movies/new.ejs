@@ -7,6 +7,31 @@
 
 <h1>ADD MOVIE OR TV SHOW</h1>
 
+
+
+
+<form action="/movies" method="POST">
+  <label for="title-input">Title:  <input type="text" name="title" id="title-input"></label>
+  <br>
+
+  
+
+
+
+
+
+
+  <!-- 
+  <label for="author-input">Author: <input type="text" name="author" id="author-input"></label>
+  <br> -->
+
+  <label for="image-url-input">Link to Poster Image:  <input type="text" placeholder="ex. https://i.imgur.com/.jpg" name="imageUrl" id="image-url-input"></label>
+  <br>
+
+  <button type="submit">Add Book</button>
+</form>
+
+
 </main>
 
 <%- include("../partials/footer") %>

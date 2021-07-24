@@ -1,0 +1,39 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/books/new.css" />
+<%- include('../partials/nav') %>
+
+
+<main>
+
+<h1><%= title %></h1>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>imageUrl</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% books.forEach((book) => { %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+
+      <td><a href="/books/<%= book._id %>">Details</a></td>
+      <td>
+ 
+        </form>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+
+
+</main>
+
+<%- include("../partials/footer") %>

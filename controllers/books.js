@@ -7,16 +7,25 @@ import { Movie } from '../models/movie.js'
 export {
   newBook as new,
   create,
+  index,
 }
+
+
+function index(req, res) {
+  Book.find({}, function(err, books) {
+    res.render('books/index', {
+      books: books,
+      title: 'All Books'
+    })
+  })
+}
+
 
 function newBook(req, res) {
   res.render('books/new', {
     title: 'Add Book',
   })
 }
-
-
-
 
 function create(req, res) {
   for (let key in req.body) {

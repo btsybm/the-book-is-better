@@ -12,5 +12,8 @@ router.get('/new', booksCtrl.new);
 // POST localhost:3000/books
 router.post('/', booksCtrl.create); 
 
+// GET localhost:3000/movies
+router.get('/', booksCtrl.index)
+
 
 
