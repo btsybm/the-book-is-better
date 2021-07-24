@@ -5,8 +5,9 @@
 <body>
     <nav class="main-nav">
         <ul>
-          <li>Home</li>
-          <li>Add Book</li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/books/new">Add Book</a></li>
+
           <li>Add Movie</li>
           <li>Add TV Show</li>
         </ul>
@@ -15,7 +16,7 @@
           <button>Go</button>
         </form>
 
-        <form action="">
+
             <% if (user) { %>
                 <a href="/auth/logout">
                   <button type="submit">Logout</button>
@@ -27,7 +28,7 @@
                   </button>
                 </a>
               <% } %>
-        </form>
+
 
 
 
