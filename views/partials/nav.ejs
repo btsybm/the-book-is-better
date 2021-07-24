@@ -3,55 +3,35 @@
   <% } %>
 </head>
 <body>
-<nav>
-     
-    <div>
-        <h2>LOGO</h2>
-    </div>
+    <nav class="main-nav">
+        <ul>
+          <li>Home</li>
+          <li>Add Book</li>
+          <li>Add Movie</li>
+          <li>Add TV Show</li>
+        </ul>
+        <form>
+          <input type="search" placeholder="Search">
+          <button>Go</button>
+        </form>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
-                <div class="input-group">
-                    <div class="input-group-btn search-panel">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <span id="search_concept">All</span> <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu scrollable-dropdown" role="menu">
-                            <li><a href="#">Books</a></li>
-                            <li><a href="#">Movies</a></li>
-                            <li><a href="#">TV Shows</a></li>
-                        </ul>
-                    </div>
-                    <input type="hidden" name="search_param" value="all" id="search_param">
-                    <input type="text" class="form-control" name="x" id="search" placeholder="Search">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"><i class="fas fa-search"></i></span>
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div>
-
-        <% if (user) { %>
-            <a href="/auth/logout">
-                <button type="submit">Logout</button>
-            </a>
-            <% } else { %>
-                <a href="/auth/google" class="siwg-link">
-                    <button type="submit" class="siwg">
-                        <img id="siwg-image" alt="Sign in with Google" />
-                    </button>
+        <form action="">
+            <% if (user) { %>
+                <a href="/auth/logout">
+                  <button type="submit">Logout</button>
                 </a>
-                <% } %>
+              <% } else { %>
+                <a href="/auth/google" class="siwg-link">
+                  <button type="submit" class="siwg">
+                    <img id="siwg-image" alt="Sign in with Google" />
+                  </button>
+                </a>
+              <% } %>
+        </form>
 
-    </div>
 
 
 
-</nav>
+
+
+    </nav>

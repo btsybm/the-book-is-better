@@ -1,19 +1,20 @@
+<link rel="stylesheet" href="stylesheets/style.css" />
 <%- include('./partials/html-head') %>
+
 <%- include('./partials/nav') %>
 
 <main>
 
   <h1>THE BOOK IS BETTER</h1>
 
-  <h2>hello, <%= user ? user.profile.name : "friend" %></h2>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img 
-        src="<%= user.profile.avatar %>" 
-        alt="<%= user.profile.name %> avatar"
-      >
-    </div>
-  <% } %>
+
+  <div>
+    <p>
+      Welcome to The Book Is Better.  Search for a movie or TV show below to see if other users think it is better than the book or not.  And if you happen to have both read and watched something, we'd love your opinion.
+    </p>
+
+  </div>
+
 </main>
 
 <%- include('./partials/footer') %>

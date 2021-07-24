@@ -1,61 +1,88 @@
-nav {
-  background-color: white;
-  font-size: 2rem;
+.main-nav {
   display: flex;
-  flex-grow: 1;
+  background: orangered;
+  color: white;
+  border-radius: 3px;
+  padding: 1em;
+  font-family: sans-serif;
+}
+.main-nav > ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex: 3;
+}
+.main-nav li {
+  margin-right: 1em;
+}
+.main-nav > form {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+.main-nav input {
+  flex: 1;
+}
+.main-nav button {
+  background: white;
+  border: 0;
+  border-radius: 1em;
+  color: orangered;
+  padding: 0 1em;
+  margin-left: .3em;
+}
+@media screen and (max-width: 575px) {
+ .main-nav {
+   flex-direction: column;
+ }
+ .main-nav ul {
+   flex-direction: row; /* Change this to 'column' to stack the links */
+   margin-bottom: 1em;
+ }
 }
 
-.container{
-  font-size: 2em;
-}
 
-
-/* Style to create scroll bar in dropdown */ 
-.scrollable-dropdown{
-  height: auto;
-  max-height:320px;  /* Increase / Decrease value as per your need */
-  overflow-x: hidden;
-}
 
 .siwg {
-background: url(/images/auth/google/siwg_light_normal.png);
-cursor: pointer;
-border: none;
-width: 191px;
-height: 46px;
+  background: url(/images/auth/google/siwg_light_normal.png);
+  cursor: pointer;
+  border: none;
+  width: 191px;
+  height: 46px;
 }
 
 .siwg-link {
-display: inline-block;
+  display: inline-block;
 }
 
 .siwg:focus,
 .siwg-link:focus {
-background: url(/images/auth/google/siwg_light_focus.png);
-outline: none;
+  background: url(/images/auth/google/siwg_light_focus.png);
+  outline: none;
 }
 
 .siwg:active {
-background: url(/images/auth/google/siwg_light_pressed.png);
+  background: url(/images/auth/google/siwg_light_pressed.png);
 }
 
 /* This pre-loads the siwg focus and active buttons */
 .siwg::after{
-position:absolute; 
-width:0; 
-height:0; 
-overflow:hidden; 
-z-index:-1; 
-content:url(/images/auth/google/siwg_light_pressed.png) url(/images/auth/google/siwg_light_focus.png)
+  position:absolute; 
+  width:0; 
+  height:0; 
+  overflow:hidden; 
+  z-index:-1; 
+  content:url(/images/auth/google/siwg_light_pressed.png) url(/images/auth/google/siwg_light_focus.png)
 }
 
 /* This hides the siwg alt text and broken image icon */
 #siwg-image {
-clip: rect(1px, 1px, 1px, 1px);
-height: 1px;
-margin: -1px;
-overflow: hidden;
-padding: 0;
-position: absolute;
-width: 1px; 
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; 
 }
