@@ -6,6 +6,7 @@ export {
   router
 }
 
-
-// GET localhost:3000/movies/new
 router.get('/new', moviesCtrl.new)
+router.get('/', moviesCtrl.index)
+router.get('/:id', moviesCtrl.show)
+router.post('/', moviesCtrl.create); 

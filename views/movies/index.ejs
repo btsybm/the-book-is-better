@@ -1,0 +1,37 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/books/new.css" />
+<%- include('../partials/nav') %>
+
+
+<main>
+
+<h1><%= title %></h1>
+<table id="list">
+
+  <thead>
+    <tr>
+      <th>Title:</th>
+      <th>Based Off the Book:</th>
+      <th>Format:</th>
+      <th>Year:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% movies.forEach((movie) => { %>
+    <tr>
+      <td><%= movie.title %></td>
+      <td><%= movie.sourceMaterial %></td>
+      <td><%= movie.format %></td>
+      <td><%= movie.year %></td>
+      <td><a href="/movie/<%= movie._id %>">Details</a></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+
+
+</main>
+
+<%- include("../partials/footer") %>
