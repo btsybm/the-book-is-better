@@ -1,8 +1,6 @@
 import { Movie} from '../models/movie.js'
 import { Book } from '../models/book.js'
 
-
-
 export {
   newMovie as new,
   create,

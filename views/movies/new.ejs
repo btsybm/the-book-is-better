@@ -4,31 +4,30 @@
 <main>
   <!-- <h1><%= title %></h1> -->
 
-
 <h1>ADD MOVIE OR TV SHOW</h1>
-
-
-
 
 <form action="/movies" method="POST">
   <label for="title-input">Title:  <input type="text" name="title" id="title-input"></label>
   <br>
 
-  
+  <label for="source-material-input">Based off Book:  <input type="text" name="sourceMaterial" id="source-material-input"></label>
+  <br>
 
+  <label>Format:
+    <select name='format'>
+        <option value='Movie'>Movie</option>
+        <option value='TV Series'>TV Series</option>
+        <option value='Miniseries'>Miniseries</option>
+    </select>
+  </label> <br>
 
-
-
-
-
-  <!-- 
-  <label for="author-input">Author: <input type="text" name="author" id="author-input"></label>
-  <br> -->
+  <label for="year-input">Year:  <input type="number" name="year" id="year-input" min=999 max=2030></label>
+  <br>
 
   <label for="image-url-input">Link to Poster Image:  <input type="text" placeholder="ex. https://i.imgur.com/.jpg" name="imageUrl" id="image-url-input"></label>
   <br>
 
-  <button type="submit">Add Book</button>
+  <button type="submit">Add Movie/Show</button>
 </form>
 
 

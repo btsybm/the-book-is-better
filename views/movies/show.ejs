@@ -10,10 +10,11 @@
     <div>Title: </div>
     <div><%= movie.title %></div>
 
-
+    <div>Year: </div>
+    <div><%= movie.year %></div>
 
     <div>Based of : </div>
-    <div><%= book.author %></div>
+    <div><%= movies.sourceMaterial %></div>
     
 
 
@@ -21,7 +22,7 @@
     <!-- <div>(how to display from movie model with title as sourceMaterial</div> -->
 
     <div>
-      <img src="<% book.imageUrl %>" alt="<%= book.title %>">
+      <img src="<% movie.imageUrl %>" alt="<%= movie.title %>">
     </div>
     
   </section>

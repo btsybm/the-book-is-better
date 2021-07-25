@@ -14,13 +14,16 @@ const movieSchema = new Schema({
   sourceMaterial: [{type: Schema.Types.ObjectId, ref: 'Book'}],
   imageUrl: {
     type: String,
+    required: true
+
   }, 
   betterThanBook: [{
     type: Schema.Types.ObjectId,
     ref: 'Review',
   }],
   year: {
-    type: Date,
+    type: Number,
+    required: true,
   },
   format: {
     type: String,
