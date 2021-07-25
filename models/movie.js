@@ -11,10 +11,14 @@ const movieSchema = new Schema({
     type: String,
     required: true
   },
-  sourceMaterial: [{type: Schema.Types.ObjectId, ref: 'Book'}],
+  // sourceMaterial: [{type: Schema.Types.ObjectId, ref: 'Book'}],
+  sourceMaterial: {
+    type: String,
+    required: true,
+  },
   imageUrl: {
     type: String,
-    required: true
+    required: false,
 
   }, 
   betterThanBook: [{

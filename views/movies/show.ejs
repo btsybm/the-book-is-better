@@ -7,25 +7,50 @@
   <!-- <h1><%= title %></h1> -->
 
   <section>
-    <div>Title: </div>
     <div><%= movie.title %></div>
-
-    <div>Year: </div>
     <div><%= movie.year %></div>
+    <div>Based off the book <%= movie.sourceMaterial %> by (author) </div>
+    <!-- how to add the author in the above sentence -->
 
-    <div>Based of : </div>
-    <div><%= movies.sourceMaterial %></div>
-    
-
-
-    <div>Adaptations:</div>
-    <!-- <div>(how to display from movie model with title as sourceMaterial</div> -->
-
-    <div>
+    <!-- <div>
       <img src="<% movie.imageUrl %>" alt="<%= movie.title %>">
-    </div>
+    </div> -->
     
   </section>
+
+  <br>
+
+  <div class="vote">
+    <h3>Do you think the book or <%= movie.format %> is better?</h3>
+    <h6>Don't be a dick and vote if you haven't read the book.</h6>
+    <label class="screen-reader-only" for="choice"></label>
+    <span aria-hidden="true">Book</span>
+    <input type="range" max="1" id="choice" name="choice">
+    <span aria-hidden="true"><%= movie.format %></span>
+    <br>
+    <button>Vote</button>
+  </div>
+
+
+<div class = "comments">
+  <p>Care to elaborate?</p>
+  <textarea placeholder=""></textarea>
+  <br>
+  <button>Add Comment</button>
+
+</div>
+
+    
+            
+            
+
+
+
+
+
+
+
+
 
 </main>
 

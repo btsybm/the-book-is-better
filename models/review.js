@@ -15,6 +15,7 @@ const reviewSchema = new Schema({
     type: String
   },
   reviewer: [{ type: Schema.Types.ObjectId, ref: 'Profile' }],
+  // so that later I can add a section on movie show page with all the comments from reviews
   adaptations: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
 }, {
   timestamps: true

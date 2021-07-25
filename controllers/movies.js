@@ -23,7 +23,7 @@ function create(req, res) {
     .then(result => res.redirect('/'))
     .catch(err => {
       console.log(err)
-      res.redirect('/movies/new')
+      res.redirect('/movies')
     })
 }
 
