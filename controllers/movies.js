@@ -6,6 +6,7 @@ export {
   create,
   index,
   show,
+  search,
 }
 
 function newMovie(req, res) {
@@ -44,3 +45,35 @@ function show(req, res) {
     })
   })
 }
+
+function search(req, res) {
+    if (req.body.searchParam === "books") {
+      // Book.find({ title: req.body.searchContent})
+      // .then(jobs => {
+      //     console.log(books)
+          // res.render("jobs/search", { title: "Search Results", jobs: jobs, user: req.user ? req.user: null})
+      // })
+      // .catch(err => {
+      //     console.log(err)
+          // res.render("error", {title: "Error", user: req.user ? req.user : null})
+      // })
+        } else if (req.body.searchParam === "movies") {
+      // Company.find({ companyName: req.body.searchContent})
+      // .then(companies => {
+      //     res.render("companies/search", { title: "Search Results", companies: companies, user: req.user ? req.user: null})
+      // })
+      // .catch(err => {
+      //     console.log(err)
+      //     res.render("error", {title: "Error", user: req.user ? req.user : null})
+      // })
+  }
+}
+
+
+
+  // Movie.find({ title: req.body.movieSearch})
+  // .then(response => {
+  //   res.render('movies/search', {
+  //     movies: response.data
+  //   })
+  // })

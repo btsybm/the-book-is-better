@@ -10,9 +10,16 @@
           <li><a href="/movies">Movies & Shows</a></li>
           <li><a href="/authors">Authors</a></li>
         </ul>
-        <form>
-          <input type="search" placeholder="Search">
-          <button>Go</button>
+
+
+        <form action='movies/search' method='POST '>
+          <input name='movieSearch' type="search" placeholder='Search' aria-label='Search' >
+
+          <select name="searchParam" >
+            <option value="books">Books</option>
+            <option value="movies">Movies & TV</option>
+          </select>
+          <button type='submit'>Search</button>
         </form>
 
 

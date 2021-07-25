@@ -6,8 +6,9 @@
 <main>
   <!-- <h1><%= title %></h1> -->
 
-  <section>
+  <div>
     <div><%= movie.title %></div>
+    <div><%= movie.format %></div>
     <div><%= movie.year %></div>
     <div>Based off the book <%= movie.sourceMaterial %> by (author) </div>
     <!-- how to add the author in the above sentence -->
@@ -16,8 +17,9 @@
       <img src="<% movie.imageUrl %>" alt="<%= movie.title %>">
     </div> -->
     
-  </section>
+  </div>
 
+  <br>
   <br>
 
   <div class="vote">
@@ -31,24 +33,17 @@
     <button>Vote</button>
   </div>
 
+  <div class = "comments">
+    <p>Care to elaborate?</p>
+    <textarea placeholder=""></textarea>
+    <br>
+    <button>Add Comment</button>
+  </div>
 
-<div class = "comments">
-  <p>Care to elaborate?</p>
-  <textarea placeholder=""></textarea>
   <br>
-  <button>Add Comment</button>
+  <br>
 
-</div>
-
-    
-            
-            
-
-
-
-
-
-
+<div>(CHART OF VOTE RESULTS FROM ALL USERS)</div>
 
 
 
