@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/books/new.css" />
+<%- include('../partials/nav') %>
+<main>
+  <!-- <h1><%= title %></h1> -->
+
+
+<h1>ADD AUTHOR</h1>
+
+<form action="/authors" method="POST">
+  <label for="name-input">Name:  <input type="text" name="name" id="name-input"></label>
+  <br>
+  <button type="submit">Add Author</button>
+</form>
+
+</main>
+
+<%- include("../partials/footer") %>

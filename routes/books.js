@@ -9,10 +9,10 @@ export {
 // GET localhost:3000/books/new
 router.get('/new', booksCtrl.new);
 
-// GET localhost:3000/movies
+// GET localhost:3000/books
 router.get('/', booksCtrl.index)
 
-// GET localhost:3000/movies/:id
+// GET localhost:3000/books/:id
 router.get('/:id', booksCtrl.show)
 
 // POST localhost:3000/books
