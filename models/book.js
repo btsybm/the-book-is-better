@@ -9,7 +9,12 @@ const Schema = mongoose.Schema
 const bookSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
+    // prevents duplicates if capitalized differently
+    index: {
+      unique: true,
+      collation: { locale: 'en', strength: 2 }
+    }
   },
   author: {
     type: String,

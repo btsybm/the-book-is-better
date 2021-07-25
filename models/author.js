@@ -10,7 +10,10 @@ const authorSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
+    index: {
+      unique: true,
+      collation: { locale: 'en', strength: 2 }
+    }
   },
   works: [{ type: Schema.Types.ObjectId, ref: 'Books' }],
   imageUrl: {
