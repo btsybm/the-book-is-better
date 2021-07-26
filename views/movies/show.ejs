@@ -22,30 +22,28 @@
   <br>
   <br>
 
-  <form class="vote">
-    <h3>Do you think the book or <%= movie.format %> is better?</h3>
-    <h6>Don't be a dick and vote if you haven't read the book.</h6>
-    <label class="screen-reader-only" for="choice"></label>
-    <span aria-hidden="true">Book</span>
-    <input type="range" max="1" id="choice" name="choice">
-    <span aria-hidden="true"><%= movie.format %></span>
-    <br>
-    <button>Vote</button>
-  </form>
+    <form class="review" action="/reviews/<%= movie._id %>" method="POST">
+      <h3>Do you think the book or <%= movie.format %> is better?</h3>
+      <h6>Don't be a dick and vote if you haven't read the book.</h6>
 
+      <label>Which is better?
+        <select name='preferred'>
+            <option value='book'>Book</option>
+            <option value='movie'><%= movie.format %></option>
+        </select>
+      </label> <br>
+    
+      <br>
+      <textarea name="comments" placeholder="Care to elaborate?"></textarea>
+      <br>
+      <button type='submit'>Submit Vote</button>
+    
+    </form>
 
-  <form class ="review" action="/reviews/<%= movie._id %>" method="POST">
-    <p>Care to elaborate?</p>
-    <textarea name="comments" placeholder="Comments"></textarea>
-    <br>
-    <button type='submit' >Add Comment</button>
-  </form>
 
   <br>
   <br>
-
 <div>(CHART OF VOTE RESULTS FROM ALL USERS)</div>
-
 
 
 </main>

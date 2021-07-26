@@ -7,12 +7,15 @@ export {
 const Schema = mongoose.Schema
 
 const reviewSchema = new Schema({
-  betterThanBook: {
-    type: Boolean,
+  preferred: {
+    type: String,
+    enum: ['book', 'movie']
   },
   comments: {
     type: String
   },
+  movie: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
+  reviewer: [{ type: Schema.Types.ObjectId, ref: 'Profile' }],
 }, {
   timestamps: true
 })
