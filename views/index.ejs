@@ -15,9 +15,14 @@
       the book or not. And if you happen to have both read and watched something, we'd love your opinion.
     </p>
   </div>
-  <form>
-    <input type="search" placeholder="Search">
-    <button>Go</button>
+  <form class="search" action='movies/search' method='POST '>
+    <input name='movieSearch' type="search" placeholder='Search' aria-label='Search'>
+
+    <select name="searchParam">
+      <option value="books">Books</option>
+      <option value="movies">Movies & TV</option>
+    </select>
+    <button type='submit'>Search</button>
   </form>
 
 </main>
