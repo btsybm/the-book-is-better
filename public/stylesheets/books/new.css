@@ -1,5 +1,6 @@
 * {
   font-size: 30px;
+  font-family: sans-serif;
 }
 
 main {
@@ -10,6 +11,27 @@ h1 {
   font-size: 50px;
 }
 
+h3 {
+  margin: 0;
+}
+
 h6 {
   font-size: 15px;
+  margin: 0;
+}
+
+.review {
+  font-size: 40px;
+}
+
+label {
+  font-size: 25px;
+}
+
+button {
+  font-size: 25px;
+}
+
+textarea {
+  font-size: 25px;
 }
