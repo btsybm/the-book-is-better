@@ -1,4 +1,6 @@
 import mongoose from 'mongoose'
+import { Profile } from './profile.js'
+
 
 export {
 	Book,
@@ -32,6 +34,10 @@ const bookSchema = new Schema({
     type: String,
     required: false,
   },
+  addedBy: {
+    type: Schema.Types.ObjectId,
+    ref: Profile
+  }
 }, {
   timestamps: true
 })

@@ -1,4 +1,8 @@
 import mongoose from 'mongoose'
+import { Profile } from './profile.js'
+import { Book } from './book.js'
+
+
 
 export {
   Author,
@@ -15,10 +19,18 @@ const authorSchema = new Schema({
       collation: { locale: 'en', strength: 2 }
     }
   },
-  works: [{ type: Schema.Types.ObjectId, ref: 'Books' }],
+  works: {
+    type: Schema.Types.ObjectId,
+    ref: Book
+  },
+
   imageUrl: {
     type: String,
   },
+  addedBy: {
+    type: Schema.Types.ObjectId,
+    ref: Profile
+  }
 }, {
   timestamps: true
 })

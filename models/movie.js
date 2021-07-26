@@ -1,4 +1,8 @@
 import mongoose from 'mongoose'
+import { Profile } from './profile.js'
+// import { Review } from './review.js'
+
+
 
 export {
   Movie,
@@ -33,6 +37,10 @@ const movieSchema = new Schema({
     type: String,
     enum: ['Movie', 'TV Series', 'Miniseries'],
     required: true,
+  },
+  addedBy: {
+    type: Schema.Types.ObjectId,
+    ref: Profile
   },
   cast: {
     type: String,
