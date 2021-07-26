@@ -4,33 +4,46 @@
 </head>
 <body>
     <nav class="main-nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/books">Books</a></li>
-          <li><a href="/movies">Movies & Shows</a></li>
-          <li><a href="/authors">Authors</a></li>
-        </ul>
-
-
-        <form action='movies/search' method='POST '>
-          <input name='movieSearch' type="search" placeholder='Search' aria-label='Search' >
-
-          <select name="searchParam" >
-            <option value="books">Books</option>
-            <option value="movies">Movies & TV</option>
-          </select>
-          <button type='submit'>Search</button>
-        </form>
-
-            <% if (user) { %>
-                <a href="/auth/logout">
-                  <button type="submit">Logout</button>
-                </a>
-              <% } else { %>
-                <a href="/auth/google" class="siwg-link">
-                  <button type="submit" class="siwg">
-                    <img id="siwg-image" alt="Sign in with Google" />
-                  </button>
-                </a>
-              <% } %>
+      <ul class="menu cf">
+        <li><a href="/">Home</a></li>
+        <li>
+          <a>View</a>
+          <ul class="submenu">
+            <li><a href="/books">Books</a></li>
+            <li><a href="/movies">Movies & Shows</a></li>
+            <li><a href="/authors">Authors</a></li>
+          </ul>
+        </li>
+        <li>
+          <a>Add</a>
+          <ul class="submenu">
+            <li><a href="/books/new">Add Book</a></li>
+            <li><a href="/movies/new">Add Movie or Show</a></li>
+            <li><a href="/authors/new">Add Author</a></li>
+          </ul>
+        </li>
+      </ul>
+    
+    
+      <form action='movies/search' method='POST '>
+        <input name='movieSearch' type="search" placeholder='Search' aria-label='Search'>
+    
+        <select name="searchParam">
+          <option value="books">Books</option>
+          <option value="movies">Movies & TV</option>
+        </select>
+        <button type='submit'>Search</button>
+      </form>
+    
+      <% if (user) { %>
+        <a href="/auth/logout">
+          <button type="submit">Logout</button>
+        </a>
+        <% } else { %>
+          <a href="/auth/google" class="siwg-link">
+            <button type="submit" class="siwg">
+              <img id="siwg-image" alt="Sign in with Google" />
+            </button>
+          </a>
+          <% } %>
     </nav>
