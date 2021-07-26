@@ -52,10 +52,11 @@ function show(req, res) {
 
 
 function search(req, res) {
+  console.log(req.body.search)
   if (req.body.searchParam === "movies") {
     Movie.find({ title: req.body.search })
       .then(movies => {
-        console.log(movies)
+        // console.log(movies)
         res.render("movies/search", { title: "Movie Search Results", movies: movies, user: req.user ? req.user : null })
       })
       .catch(err => {
@@ -71,16 +72,17 @@ function search(req, res) {
         console.log(err)
         res.render("error", { title: 'Error', user: req.user ? req.user : null })
       })
-  } else (req.body.searchParam === "authors") 
-    Author.find({ name: req.body.search })
-      .then(authors => {
-        res.render("authors/search", { title: 'Author Search Results', authors: authors, user: req.user ? req.user : null })
-      })
-      .catch(err => {
-        console.log(err)
-        res.render("error", { title: "Error", user: req.user ? req.user : null })
-      })
-  }
+  } else (req.body.searchParam === "authors")
+  Author.find({ name: req.body.search })
+    .then(authors => {
+      res.render("authors/search", { title: 'Author Search Results', authors: authors, user: req.user ? req.user : null })
+    })
+    .catch(err => {
+      console.log(err)
+      res.render("error", { title: "Error", user: req.user ? req.user : null })
+    })
+}
+
 
 
 

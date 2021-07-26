@@ -1,9 +1,11 @@
-<% if (!user) { %>
-    <link rel="stylesheet" href="/stylesheets/nav.css">
-  <% } %>
+<!-- <% if (!user) { %>
+   <link rel="stylesheet" href="/stylesheets/nav.css">
+   <% } %>  -->
+
 </head>
 <body>
     <nav class="main-nav">
+
       <ul class="menu cf">
         <li><a href="/">Home</a></li>
         <li>
@@ -28,9 +30,8 @@
             </ul>
           </li>
           </ul>
-    
-    
-      <% if (user) { %>
+
+        <% if (user) { %>
         <a href="/auth/logout">
           <button type="submit">Logout</button>
         </a>
@@ -40,10 +41,10 @@
               <img id="siwg-image" alt="Sign in with Google" />
             </button>
           </a>
-          <% } %>
+          <% } %>  
 
 
-      <form action='movies/search' method='POST'>
+      <form action='/movies/search' method='POST'>
         <input name='search' type="search" placeholder='Search' aria-label='Search'>
         <select name="searchParam">
           <option value="movies">Movies & TV</option>
@@ -51,7 +52,12 @@
           <option value="authors">Authors</option>
         </select>
         <button type='submit'>Search</button>
-      </form>
+      </form>    
+
+
+
+
+
     
 
 
