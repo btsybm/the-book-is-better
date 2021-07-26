@@ -43,7 +43,7 @@ const movieSchema = new Schema({
     ref: Profile
   },
   cast: {
-    type: String,
+    type: [String],
   }, 
 }, {
   timestamps: true

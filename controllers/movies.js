@@ -1,5 +1,7 @@
 import { Movie} from '../models/movie.js'
 import { Book } from '../models/book.js'
+import { Author } from '../models/author.js'
+
 
 export {
   newMovie as new,
@@ -49,13 +51,14 @@ function show(req, res) {
 
 
 function search(req, res) {
-  Movies.find({ title: req.body.search })
+  Movie.find({ title: req.body.search })
   .then(movies => {
-    Books.find({ title: req.body.search })
+    Book.find({ title: req.body.search })
     .then(books => {
-      Authors.find({ name: req.body.search })
+      Author.find({ name: req.body.search })
       .then(authors => {
         res.render('movies/search', {
+          title: "search results",
           movies,
           books,
           authors
