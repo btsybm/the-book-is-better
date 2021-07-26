@@ -2,11 +2,34 @@
 <link rel="stylesheet" href="/stylesheets/books/new.css" />
 <%- include('../partials/nav') %>
 <main>
-
-
   <h1>Author Search Results:</h1>
 
+  <% let authorInterval=0 %>
+    <% if (authors.length> 0) { %>
+      <% authors.forEach(author=> { %>
+        <% if (authorInterval % 2===0) { %>
+          <div>
+            <% } %>
+              <div>
+                <div class='card'>
+                  <a href="/authors/<%= author._id %>">
+                    <div class="container">
+                      <h4><%=author.name %></h4>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <% if (authorInterval % 2===1) { %>
+          </div>
+          <% } %>
+            <% authorInterval ++ %>
+              <% }) %>
+                <% } else { %>
+                  <h3>No authors with that name.</h3>
+                  <% } %>
 
+<br>
+<button><a href="/authors/new">Add Author</a></button>
 
 
 

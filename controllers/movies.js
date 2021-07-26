@@ -72,7 +72,7 @@ function search(req, res) {
         res.render("error", { title: 'Error', user: req.user ? req.user : null })
       })
   } else (req.body.searchParam === "authors") 
-    Author.find({ name: req.body.searchContent })
+    Author.find({ name: req.body.search })
       .then(authors => {
         res.render("authors/search", { title: 'Author Search Results', authors: authors, user: req.user ? req.user : null })
       })
