@@ -62,7 +62,7 @@ function search(req, res) {
         console.log(err)
         res.render("error", { title: "Error", user: req.user ? req.user : null })
       })
-  } else if (req.body.searchParam === 'books') {
+  } else if (req.body.searchParam === "books") {
     Book.find({ title: req.body.search })
       .then(books => {
         res.render("books/search", { title: 'Book Search Results', books: books, user: req.user ? req.user : null })

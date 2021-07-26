@@ -6,11 +6,36 @@
 
   <h1>Book Search Results:</h1>
 
+  <% let bookInterval=0 %>
+    <% if (books.length> 0) { %>
+      <% books.forEach(book=> { %>
+        <% if (bookInterval % 2===0) { %>
+          <div>
+            <% } %>
+              <div>
+                <div class='card'>
+                  <a href="/books/<%= book._id %>">
+                    <div class="container">
+                      <h4><%=book.title %></h4>
+                      <p>Author: <%=book.author %></p>
+                      <p>Year: <%= book.year %></p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <% if (bookInterval % 2===1) { %>
+          </div>
+          <% } %>
+            <% bookInterval ++ %>
+              <% }) %>
+                <% } else { %>
+                  <h3>No books with that title.</h3>
+                  <% } %>
 
+<br>
 
-
-
-
+<button><a href="/books/new">Add Book</a></button>
+       
 
 
 </main>
