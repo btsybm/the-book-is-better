@@ -4,15 +4,39 @@
 <main>
 
 
+  <h1>Movie Search Results:</h1>
 
 
 
 
+<!-- Card with movie properties -->
 
-
-
-
-
+          
+          <% let movieInterval = 0 %> 
+          <% if (movies.length > 0) { %>
+              <% movies.forEach(movie => { %>
+                  <% if (movieInterval % 2 === 0) { %>
+                      <div> 
+                  <% } %>
+                  <div >
+                    <div class='card' >
+                        <a href="/movies/<%= movie._id %>">
+                            <div class = "container">
+                                <h4><%=movie.title %></h4>
+                                <p>Format: <%=movie.format %></p>
+                                <p>Year: <%= movie.year %> </p>
+                            </div>
+                        </a>
+                      </div>
+                  </div>
+              <% if (movieInterval % 2 === 1) { %>
+              </div> 
+              <% } %>
+              <% movieInterval ++ %> 
+          <% }) %>
+      <% } else { %>
+          <h3>No movies with that title.</h3>
+      <% } %> 
 
 
 

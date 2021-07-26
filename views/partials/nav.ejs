@@ -7,36 +7,29 @@
       <ul class="menu cf">
         <li><a href="/">Home</a></li>
         <li>
-          <a>View</a>
+          <a>Books</a>
           <ul class="submenu">
-            <li><a href="/books">Books</a></li>
-            <li><a href="/movies">Movies & Shows</a></li>
-            <li><a href="/authors">Authors</a></li>
-          </ul>
-        </li>
-        <li>
-          <a>Add</a>
-          <ul class="submenu">
+            <li><a href="/books">All Books</a></li>
             <li><a href="/books/new">Add Book</a></li>
-            <li><a href="/movies/new">Add Movie or Show</a></li>
-            <li><a href="/authors/new">Add Author</a></li>
           </ul>
-        </li>
-      </ul>
+          </li>
+          <li>
+            <a>Movies/Shows</a>
+            <ul class="submenu">
+              <li><a href="/movies">All Movies & Shows</a></li>
+              <li><a href="/movies/new">Add Movie or Show</a></li>        
+            </ul>
+          </li>
+          <li>
+            <a>Authors</a>
+            <ul class="submenu">
+              <li><a href="/authors">All Authors</a></li>
+              <li><a href="/authors/new">Add Author</a></li>
+            </ul>
+          </li>
+          </ul>
     
     
-      <form action='movies/search' method='POST'>
-        <input name='movieSearch' type="search" placeholder='Search' aria-label='Search'>
-    
-        <select name="searchParam">
-          <option value="books">Books</option>
-          <option value="movies">Movies & TV</option>
-        </select>
-        <button type='submit'>Search</button>
-      </form>
-    
-
-
       <% if (user) { %>
         <a href="/auth/logout">
           <button type="submit">Logout</button>
@@ -48,4 +41,20 @@
             </button>
           </a>
           <% } %>
+
+
+      <form action='movies/search' method='POST'>
+        <input name='search' type="search" placeholder='Search' aria-label='Search'>
+    
+        <select name="searchParam">
+          <option value="books">Books</option>
+          <option value="movies">Movies & TV</option>
+          <option value="authors">Authors</option>
+
+        </select>
+        <button type='submit'>Search</button>
+      </form>
+    
+
+
     </nav>

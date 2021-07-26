@@ -1,6 +1,7 @@
 import { Movie} from '../models/movie.js'
 import { Book } from '../models/book.js'
 import { Author } from '../models/author.js'
+import { response } from 'express'
 
 
 export {
@@ -51,20 +52,71 @@ function show(req, res) {
 
 
 function search(req, res) {
-  Movie.find({ title: req.body.search })
-  .then(movies => {
-    Book.find({ title: req.body.search })
-    .then(books => {
-      Author.find({ name: req.body.search })
-      .then(authors => {
-        res.render('movies/search', {
-          title: "search results",
-          movies,
-          books,
-          authors
-        })
+  if (req.body.searchParam === "movies") {
+    Movie.find({ title: req.body.search })
+      .then(movies => {
+        console.log(movies)
+        res.render("movies/search", { title: "Movie Search Results", movies: movies, user: req.user ? req.user : null })
       })
-    })
-  })
-}
+      .catch(err => {
+        console.log(err)
+        res.render("error", { title: "Error", user: req.user ? req.user : null })
+      })
+  } else if (req.body.searchParam === 'books') {
+    Book.find({ title: req.body.search })
+      .then(books => {
+        res.render("books/search", { title: 'Book Search Results', books: books, user: req.user ? req.user : null })
+      })
+      .catch(err => {
+        console.log(err)
+        res.render("error", { title: 'Error', user: req.user ? req.user : null })
+      })
+  } else (req.body.searchParam === "authors") 
+    Author.find({ name: req.body.searchContent })
+      .then(authors => {
+        res.render("authors/search", { title: 'Author Search Results', authors: authors, user: req.user ? req.user : null })
+      })
+      .catch(err => {
+        console.log(err)
+        res.render("error", { title: "Error", user: req.user ? req.user : null })
+      })
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function search(req, res) {
+//   Movie.find({ title: req.body.search })
+//   .then(movies => {
+//     Book.findOne({ title: req.body.search })
+//     .then(book => {
+//       Author.findOne({ name: req.body.search })
+//       .then(author => {
+//         console.log(authors)
+//         console.log(movies)
+//         console.log(books)
+//         res.render('movies/search', {
+//           title: "search results",
+//           movies,
+//           book,
+//           author,
+//         })
+//       })
+//     })
+//   })
+// }
 
