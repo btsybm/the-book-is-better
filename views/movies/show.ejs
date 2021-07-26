@@ -22,7 +22,7 @@
   <br>
   <br>
 
-  <div class="vote">
+  <form class="vote">
     <h3>Do you think the book or <%= movie.format %> is better?</h3>
     <h6>Don't be a dick and vote if you haven't read the book.</h6>
     <label class="screen-reader-only" for="choice"></label>
@@ -31,14 +31,15 @@
     <span aria-hidden="true"><%= movie.format %></span>
     <br>
     <button>Vote</button>
-  </div>
+  </form>
 
-  <div class = "comments">
+
+  <form class ="review" action="/reviews/<%= movie._id %>" method="POST">
     <p>Care to elaborate?</p>
-    <textarea placeholder=""></textarea>
+    <textarea name="comments" placeholder="Comments"></textarea>
     <br>
-    <button>Add Comment</button>
-  </div>
+    <button type='submit' >Add Comment</button>
+  </form>
 
   <br>
   <br>
