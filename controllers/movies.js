@@ -42,11 +42,13 @@ function index(req, res) {
 
 function show(req, res) {
   Movie.findById(req.params.id, function(err, movie) {
+    console.log("This is the movie", movie);
     res.render('movies/show', {
       title: 'Movie Details',
       movie: movie
     })
   })
+  .populate("preferred")
 }
 
 
@@ -83,42 +85,4 @@ function search(req, res) {
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function search(req, res) {
-//   Movie.find({ title: req.body.search })
-//   .then(movies => {
-//     Book.findOne({ title: req.body.search })
-//     .then(book => {
-//       Author.findOne({ name: req.body.search })
-//       .then(author => {
-//         console.log(authors)
-//         console.log(movies)
-//         console.log(books)
-//         res.render('movies/search', {
-//           title: "search results",
-//           movies,
-//           book,
-//           author,
-//         })
-//       })
-//     })
-//   })
-// }
 

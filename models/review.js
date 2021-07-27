@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import { Profile } from './profile.js'
-import { Movie } from './movie.js'
 
 
 export {
@@ -17,13 +16,10 @@ const reviewSchema = new Schema({
   comments: {
     type: String
   },
-  movie: {
-    type: Schema.Types.ObjectId,
-    ref: Movie
-  },
+  movie: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
   addedBy: {
     type: Schema.Types.ObjectId,
-    ref: Profile
+    ref: "Profile"
   },
 }, {
   timestamps: true

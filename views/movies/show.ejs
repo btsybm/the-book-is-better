@@ -6,7 +6,7 @@
 <main>
   <!-- <h1><%= title %></h1> -->
 
-  <div>
+ 
     <div><%= movie.title %></div>
     <div><%= movie.format %></div>
     <div><%= movie.year %></div>
@@ -17,31 +17,49 @@
       <img src="<% movie.imageUrl %>" alt="<%= movie.title %>">
     </div> -->
     
-  </div>
 
   <br>
+  <div>(CHART OF VOTE RESULTS)</div>
+<br>
+
+<!-- Have this form show up if the user hasn't submitted a review for this movie yet -->
+
+<% if (!movie.preferred.some(review => review.addedBy.equals(user.profile._id))) { %>
+
+<form class="review" action="/reviews/<%= movie._id %>" method="POST">
+  <h3>Do you think the book or <%= movie.format %> is better?</h3>
+  <h6>(Don't be a dick and vote if you haven't read the book.)</h6>
+  <label>Which is better?
+    <!-- change to radio buttons -->
+    <select name='preferred'>
+        <option value='book'>Book</option>
+        <option value='movie'><%= movie.format %></option>
+    </select>
+  </label> <br>
+  <textarea name="comments" placeholder="Care to elaborate?"></textarea>
   <br>
+  <button type='submit'>Submit Vote & Review</button>
+</form>
+<% } else { %>
 
-    <form class="review" action="/reviews/<%= movie._id %>" method="POST">
-      <h3>Do you think the book or <%= movie.format %> is better?</h3>
-      <h6>(Don't be a dick and vote if you haven't read the book.)</h6>
+<!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
 
-      <label>Which is better?
-        <!-- change to radio buttons -->
-        <select name='preferred'>
-            <option value='book'>Book</option>
-            <option value='movie'><%= movie.format %></option>
-        </select>
-      </label> <br>
-      <textarea name="comments" placeholder="Care to elaborate?"></textarea>
-      <br>
-      <button type='submit'>Submit Vote</button>
-    </form>
+<form class="review" action="/reviews/<%= movie._id %>?_method=PUT" method="POST">
 
 
-  <br>
-  <br>
-<div>(CHART OF VOTE RESULTS FROM ALL USERS)</div>
+
+</form>
+
+<!-- Delete Review/Vote Button -->
+<form action="/reviews/<%= user.profile._id %>?_method=DELETE" method="POST">
+
+
+</form>
+
+<% } %>
+
+
+
 
 
 </main>

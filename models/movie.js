@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import { Profile } from './profile.js'
+import { Review } from './review.js'
 // import { Review } from './review.js'
 
 
@@ -15,7 +16,6 @@ const movieSchema = new Schema({
     type: String,
     required: true
   },
-  // sourceMaterial: [{type: Schema.Types.ObjectId, ref: 'Book'}],
   sourceMaterial: {
     type: String,
     required: true,
@@ -25,7 +25,7 @@ const movieSchema = new Schema({
     required: false,
 
   }, 
-  betterThanBook: [{
+  preferred: [{
     type: Schema.Types.ObjectId,
     ref: 'Review',
   }],
