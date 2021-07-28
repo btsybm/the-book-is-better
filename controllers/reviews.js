@@ -17,22 +17,25 @@ function create(req, res) {
   }
   const review = new Review(req.body)
   review.save()
+  console.log(review)
   Movie.findById(req.params.id, function(err, movie) {
     if (!err) {
       console.log("This is the movie", movie);
-      movie.preferred.push(review)
+      movie.preferred = review._id
       movie.save()
       res.redirect('/')
     } else {
       console.log(err)
       res.redirect(`/movies/${movie._id}`)
     }
-
   })
 }
 
 function edit(req, res) {
   Review.findById(req.params.id, function(err, review) {
+
+
+
 
   })
 }

@@ -25,10 +25,10 @@ const movieSchema = new Schema({
     required: false,
 
   }, 
-  preferred: [{
+  preferred: {
     type: Schema.Types.ObjectId,
     ref: 'Review',
-  }],
+  },
   year: {
     type: Number,
     required: true,

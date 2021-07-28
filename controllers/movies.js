@@ -41,14 +41,15 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Movie.findById(req.params.id, function(err, movie) {
-    console.log("This is the movie", movie);
+  Movie.findById(req.params.id)
+  .populate("preferred")
+  .then(movie => {
+    console.log("This is the movie", movie.preferred);
     res.render('movies/show', {
       title: 'Movie Details',
       movie: movie
     })
   })
-  .populate("preferred")
 }
 
 

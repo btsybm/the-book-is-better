@@ -24,7 +24,7 @@
 
 <!-- Have this form show up if the user hasn't submitted a review for this movie yet -->
 
-<% if (!movie.preferred.some(review => review.addedBy.equals(user.profile._id))) { %>
+<% if (!movie.preferred?.addedBy.equals(user.profile._id)) { %>
 
 <form class="review" action="/reviews/<%= movie._id %>" method="POST">
   <h3>Do you think the book or <%= movie.format %> is better?</h3>
@@ -43,16 +43,34 @@
 <% } else { %>
 
 <!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
+<h3>Your Review</h3>
 
 <form class="review" action="/reviews/<%= movie._id %>?_method=PUT" method="POST">
+
+<label>Which is better?
+  <!-- change to radio buttons -->
+
+  <select name='preferred'>
+      <option value='book'>Book</option>
+      <option value='movie'><%= movie.format %></option>
+  </select>
+</label> <br>
+
+<input name="comments" value="<%= movie.preferred.comments %>"></input>
+
+<br>
+<button type='submit'>Update Review</button>
 
 
 
 </form>
 
+
+
 <!-- Delete Review/Vote Button -->
 <form action="/reviews/<%= user.profile._id %>?_method=DELETE" method="POST">
 
+  <h1>lets delete</h1>
 
 </form>
 
