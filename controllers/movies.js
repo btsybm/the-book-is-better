@@ -55,10 +55,10 @@ function show(req, res) {
 
 function search(req, res) {
   console.log(req.body.search)
+  let regex = new RegExp(req.body.search)
   if (req.body.searchParam === "movies") {
-    Movie.find({ title: req.body.search })
-      .then(movies => {
-        // console.log(movies)
+    Movie.find ({title: { $regex: regex, $options: "i" }})      
+    .then(movies => {
         res.render("movies/search", { title: "Movie Search Results", movies: movies, user: req.user ? req.user : null })
       })
       .catch(err => {
@@ -66,7 +66,7 @@ function search(req, res) {
         res.render("error", { title: "Error", user: req.user ? req.user : null })
       })
   } else if (req.body.searchParam === "books") {
-    Book.find({ title: req.body.search })
+    Book.find({title: { $regex: regex, $options: "i" }}) 
       .then(books => {
         res.render("books/search", { title: 'Book Search Results', books: books, user: req.user ? req.user : null })
       })
@@ -74,8 +74,8 @@ function search(req, res) {
         console.log(err)
         res.render("error", { title: 'Error', user: req.user ? req.user : null })
       })
-  } else (req.body.searchParam === "authors")
-  Author.find({ name: req.body.search })
+  } else if (req.body.searchParam === "authors")
+  Author.find({name: { $regex: regex, $options: "i" }}) 
     .then(authors => {
       res.render("authors/search", { title: 'Author Search Results', authors: authors, user: req.user ? req.user : null })
     })
