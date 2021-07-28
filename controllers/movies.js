@@ -24,7 +24,7 @@ function create(req, res) {
   }
   const movie = new Movie(req.body)
   movie.save()
-    .then(result => res.redirect('/'))
+    .then(result => res.redirect(`/movies/${movie._id}`))
     .catch(err => {
       console.log(err)
       res.redirect('/movies')
