@@ -9,15 +9,9 @@ export {
 
 function update(req, res) {
   console.log("banana");
-  Movie.findById(req.params.id)
-  .populate('preferred')
-  .then(movie => {
-    movie.preferred.comments = req.body.comments
-    console.log(movie.preferred, "stringstring");
-    movie.save()
-    .then(()=> {
-      res.redirect(`/movies/${movie._id}`)
-    })
+  Review.findByIdAndUpdate(req.params.id, req.body)
+  .then(()=> {
+      res.redirect(`/movies`)
   })
   .catch(err => {
     console.log(err)

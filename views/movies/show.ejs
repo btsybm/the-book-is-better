@@ -44,23 +44,17 @@
 
 <!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
 <h3>Your Review</h3>
-
-<form class="review" action="/reviews/<%= movie._id %>?_method=PUT" method="POST">
-
+<form class="review" action="/reviews/<%= movie.preferred._id %>?_method=PUT" method="POST">
 <label>Which is better?
   <!-- change to radio buttons -->
-
   <select name='preferred'>
       <option value='book'>Book</option>
-      <option value='movie'><%= movie.format %></option>
+      <option value='movie'>Movie</option>
   </select>
 </label> <br>
-
 <input name="comments" value="<%= movie.preferred.comments %>">
-
 <br>
 <button type='submit'>Save Changes</button>
-
 </form>
 
 
