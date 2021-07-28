@@ -1,27 +1,43 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/books/new.css" />
+<link rel="stylesheet" href="/stylesheets/donut.css" />
 <%- include('../partials/nav') %>
 
 
 <main>
   <!-- <h1><%= title %></h1> -->
-
- 
     <div><%= movie.title %></div>
     <div><%= movie.format %></div>
     <div><%= movie.year %></div>
-    <div>Based off the book <%= movie.sourceMaterial %> by (author) </div>
-    <!-- how to add the author in the above sentence -->
-
+    <div>Based off the book <%= movie.sourceMaterial %> </div>
+    <!-- above reference book then author to get based off the book by (author) -->
     <!-- <div>
       <img src="<% movie.imageUrl %>" alt="<%= movie.title %>">
     </div> -->
-    
-
   <br>
-  <div>(CHART OF VOTE RESULTS)</div>
-<br>
+  <br>
 
+<div>
+
+
+
+
+</div>
+
+
+
+  <div>(CHART OF VOTE RESULTS)</div>
+
+
+  <div class="percentage-circle circle-63 circle-green"><span>50% </span></div>
+
+
+
+
+
+
+<br>
+<br>
 <!-- Have this form show up if the user hasn't submitted a review for this movie yet -->
 
 <% if (!movie.preferred?.addedBy.equals(user.profile._id)) { %>

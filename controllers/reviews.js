@@ -4,31 +4,46 @@ import { Movie } from '../models/movie.js'
 export {
   create,
   deleteReview as delete,
-  update
+  update,
+  totalReviews
 }
+
+
+function totalReviews (req, res) {
+
+
+  
+}
+
+
+
+
+
+
+
+
 
 function update(req, res) {
   Review.findByIdAndUpdate(req.params.id, req.body)
-  .then(()=> {
-    res.redirect(req.headers.referer)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+    .then(() => {
+      res.redirect(req.headers.referer)
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
 
 
 function deleteReview(req, res) {
   console.log("are we deleting");
   Review.findByIdAndDelete(req.params.id, req.body)
-  .then(()=> {
+    .then(() => {
       res.redirect(req.headers.referer)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
-
 
 function create(req, res) {
   req.body.addedBy = req.user.profile._id
@@ -39,7 +54,7 @@ function create(req, res) {
   const review = new Review(req.body)
   review.save()
   console.log(review)
-  Movie.findById(req.params.id, function(err, movie) {
+  Movie.findById(req.params.id, function (err, movie) {
     if (!err) {
       movie.preferred = review._id
       movie.save()
@@ -51,6 +66,8 @@ function create(req, res) {
     }
   })
 }
+
+
 
 
 
