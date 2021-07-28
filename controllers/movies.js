@@ -44,7 +44,6 @@ function show(req, res) {
   Movie.findById(req.params.id)
   .populate("preferred")
   .then(movie => {
-    console.log("testtest", movie.preferred);
     res.render('movies/show', {
       title: 'Movie Details',
       movie: movie

@@ -10,7 +10,7 @@ export {
 function update(req, res) {
   Review.findByIdAndUpdate(req.params.id, req.body)
   .then(()=> {
-      res.redirect(`/movies`)
+    res.redirect(req.headers.referer)
   })
   .catch(err => {
     console.log(err)
@@ -22,7 +22,7 @@ function deleteReview(req, res) {
   console.log("are we deleting");
   Review.findByIdAndDelete(req.params.id, req.body)
   .then(()=> {
-      res.redirect(`/movies`)
+      res.redirect(req.headers.referer)
   })
   .catch(err => {
     console.log(err)

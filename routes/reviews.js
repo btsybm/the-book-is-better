@@ -13,7 +13,7 @@ router.post('/:id', isLoggedIn, reviewsCtrl.create)
 router.put('/:id', isLoggedIn, reviewsCtrl.update)
 
 //delete review
-router.delete('/:id/delete', isLoggedIn, reviewsCtrl.delete)
+router.delete('/:id', isLoggedIn, reviewsCtrl.delete)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
