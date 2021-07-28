@@ -8,8 +8,19 @@ export {
 }
 
 function update(req, res) {
-  console.log("banana");
   Review.findByIdAndUpdate(req.params.id, req.body)
+  .then(()=> {
+    res.redirect(`/movies/${movie._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
+
+function deleteReview(req, res) {
+  console.log("are we deleting");
+  Review.findByIdAndDelete(req.params.id, req.body)
   .then(()=> {
       res.redirect(`/movies`)
   })
@@ -17,7 +28,6 @@ function update(req, res) {
     console.log(err)
   })
 }
-
 
 
 function create(req, res) {
@@ -31,10 +41,10 @@ function create(req, res) {
   console.log(review)
   Movie.findById(req.params.id, function(err, movie) {
     if (!err) {
-      console.log("WHYYYY", movie);
       movie.preferred = review._id
       movie.save()
-      res.redirect('/')
+      res.redirect(`/movies/${movie._id}`)
+
     } else {
       console.log(err)
       res.redirect(`/movies/${movie._id}`)
@@ -44,8 +54,3 @@ function create(req, res) {
 
 
 
-function deleteReview(req, res) {
-  Review.findById(req.params.id, function(err, review) {
-    res.redirect('/movies')
-  })
-}
