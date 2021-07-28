@@ -3,8 +3,25 @@ import { Movie } from '../models/movie.js'
 
 export {
   create,
-  edit,
   deleteReview as delete,
+  update
+}
+
+function update(req, res) {
+  console.log("banana");
+  Movie.findById(req.params.id)
+  .populate('preferred')
+  .then(movie => {
+    movie.preferred.comments = req.body.comments
+    console.log(movie.preferred, "stringstring");
+    movie.save()
+    .then(()=> {
+      res.redirect(`/movies/${movie._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+  })
 }
 
 
@@ -20,7 +37,7 @@ function create(req, res) {
   console.log(review)
   Movie.findById(req.params.id, function(err, movie) {
     if (!err) {
-      console.log("This is the movie", movie);
+      console.log("WHYYYY", movie);
       movie.preferred = review._id
       movie.save()
       res.redirect('/')
@@ -31,18 +48,10 @@ function create(req, res) {
   })
 }
 
-function edit(req, res) {
-  Review.findById(req.params.id, function(err, review) {
-
-
-
-
-  })
-}
 
 
 function deleteReview(req, res) {
   Review.findById(req.params.id, function(err, review) {
-
+    res.redirect('/movies')
   })
 }

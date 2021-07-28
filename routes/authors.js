@@ -7,13 +7,18 @@ export {
 }
 
 // GET localhost:3000/authors/new
-router.get('/new', authorsCtrl.new);
+router.get('/new', isLoggedIn, authorsCtrl.new);
 
 // GET localhost:3000/author
-router.get('/', authorsCtrl.index)
+router.get('/', isLoggedIn, authorsCtrl.index)
 
 // GET localhost:3000/authors/:id
-router.get('/:id', authorsCtrl.show)
+router.get('/:id', isLoggedIn, authorsCtrl.show)
 
 // POST localhost:3000/authors
-router.post('/', authorsCtrl.create); 
+router.post('/', isLoggedIn, authorsCtrl.create); 
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
+}

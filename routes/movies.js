@@ -6,10 +6,13 @@ export {
   router
 }
 
-router.get('/new', moviesCtrl.new)
-router.get('/', moviesCtrl.index)
-router.post('/', moviesCtrl.create)
-router.post('/search', moviesCtrl.search)
-router.get('/:id', moviesCtrl.show)
+router.get('/new', isLoggedIn, moviesCtrl.new)
+router.get('/', isLoggedIn, moviesCtrl.index)
+router.post('/', isLoggedIn, moviesCtrl.create)
+router.post('/search', isLoggedIn, moviesCtrl.search)
+router.get('/:id', isLoggedIn, moviesCtrl.show)
 
-
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
+}
