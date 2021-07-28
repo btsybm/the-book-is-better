@@ -10,7 +10,7 @@ export {
 function update(req, res) {
   Review.findByIdAndUpdate(req.params.id, req.body)
   .then(()=> {
-    res.redirect(`/movies/${movie._id}`)
+      res.redirect(`/movies`)
   })
   .catch(err => {
     console.log(err)

@@ -45,11 +45,25 @@
 <!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
 <h3>Your Review</h3>
 <form class="review" action="/reviews/<%= movie.preferred._id %>?_method=PUT" method="POST">
-<label>Which is better?
-  <select name='preferred'>
-      <option value="<%= movie.preferred.preferred %>">Book</option>
-      <option value="<%= movie.preferred.preferred %>">Movie</option>
-  </select>
+
+  <label>Which is better?
+
+    <% if (movie.preferred?.preferred === 'book') { %>
+
+    <select name='preferred'>
+      <option value='book'>Book</option>
+      <option value='movie'>Movie</option>
+    </select>
+
+      <% } else { %>
+
+        <select name='preferred'>
+          <option value='movie'>Movie</option>
+          <option value='book'>Book</option>
+        </select>
+
+      <% } %>
+
 </label> <br>
 
 <input name="comments" value="<%= movie.preferred.comments %>">
@@ -61,11 +75,11 @@
 <!-- Delete Review/Vote Button -->
 
 
-<form action="/reviews/<%= movie.preferred._id %>?_method=DELETE" method="POST">
+<!-- <form action="/reviews/<%= movie.preferred._id %>?_method=DELETE" method="POST">
 
   <button type='submit'>Delete Review</button>
 
-</form>
+</form> -->
 
 <% } %>
 
