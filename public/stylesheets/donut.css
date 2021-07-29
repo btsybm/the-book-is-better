@@ -96,6 +96,15 @@
   color: #009b78;
 }
 
+.circle-0:before {
+  background-color: inherit;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
 .circle-1:before {
   background-color: inherit;
   -webkit-transform: rotate(3.6deg);

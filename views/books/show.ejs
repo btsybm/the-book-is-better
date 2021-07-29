@@ -12,7 +12,7 @@
     
     <div>Adaptations: 
       <% movies.forEach(movie => { %> <br>
-       <%= movie.title %> 
+       <a href="/movies/<%= movie._id %>"><%= movie.title %> </a>
        <%= movie.format %> 
        <%= movie.year %> 
       <% }) %>
