@@ -58,9 +58,7 @@ function show(req, res) {
       bookPref: (movie.review.length) - (moviePref.length),
       moviePercentage: ((moviePref?.length / movie.review.length) * 100)
     }
-    console.log(data.moviePref);
     let userReview = movie.review.filter(review => review.addedBy._id.equals(req.user.profile._id))
-    console.log(userReview[0]);
     res.render('movies/show', {
       title: 'Movie Details',
       movie: movie,
