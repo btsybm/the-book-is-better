@@ -40,16 +40,32 @@ function index(req, res) {
   })
 }
 
+
+
+
 function show(req, res) {
+ 
+
   Movie.findById(req.params.id)
   .populate('review')
   .then(movie => {
+
+    let moviePref = movie.review.filter(review =>
+      review.preferred === 'book')
+    const data = {
+      totalRev: movie.review.length,
+      moviePref: moviePref?.length,
+      bookPref: (movie.review.length) - (moviePref.length),
+      moviePercentage: ((moviePref?.length / movie.review.length) * 100)
+    }
+    console.log(data.moviePref);
     let userReview = movie.review.filter(review => review.addedBy._id.equals(req.user.profile._id))
     console.log(userReview[0]);
     res.render('movies/show', {
       title: 'Movie Details',
       movie: movie,
-      userReview: userReview[0]
+      userReview: userReview[0],
+      data: data
     })
   })
 }
