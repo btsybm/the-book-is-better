@@ -17,19 +17,18 @@
   <br>
   <br>
 
-<div>
+
+<!-- Donut chart of reviews below -->
+
+  
+  <div class="percentage-circle circle-<%= ( (8) / (10))*100  %> circle-green"><span>75% </span></div>
 
 
 
-
-</div>
-
+  
 
 
-  <div>(CHART OF VOTE RESULTS)</div>
 
-
-  <div class="percentage-circle circle-63 circle-green"><span>50% </span></div>
 
 
 
@@ -38,9 +37,7 @@
 
 <br>
 <br>
-<!-- Have this form show up if the user hasn't submitted a review for this movie yet -->
-
-<% if (!movie.preferred?.addedBy.equals(user.profile._id)) { %>
+<% if (!userReview) { %>
 
 <form class="review" action="/reviews/<%= movie._id %>" method="POST">
   <h3>Do you think the book or <%= movie.format %> is better?</h3>
@@ -60,9 +57,9 @@
 
 <!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
 <h3>Your Review</h3>
-<form class="review" action="/reviews/<%= movie.preferred._id %>?_method=PUT" method="POST">
+<form class="review" action="/reviews/<%= userReview._id %>?_method=PUT" method="POST">
   <label>You prefer the
-    <% if (movie.preferred?.preferred==='book' ) { %>
+    <% if (userReview?.preferred==='book' ) { %>
       <select name='preferred'>
         <option value='book'>Book</option>
         <option value='movie'><%= movie.format %></option>
@@ -75,20 +72,19 @@
         <% } %>
   </label> <br>
 <label for="">Previous comments:</label>
-  <input name="comments" value="<%= movie.preferred.comments %>">
+  <input name="comments" value="<%= userReview.comments %>">
   <br>
   <button type='submit'>Save Changes</button>
 </form>
 <br>
 
-<form action="/reviews/<%= movie.preferred._id %>?_method=DELETE" method="POST">
+<form action="/reviews/<%= userReview._id %>?_method=DELETE" method="POST">
   <button type='submit'>Delete Review</button>
 </form>
-
 <% } %>
 
 
-
+<h1>ADD ALL COMMENTS</h1>
 
 
 </main>

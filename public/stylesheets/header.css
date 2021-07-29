@@ -8,7 +8,7 @@ body {
   align-items: stretch;
   /* min-height: 30vh; */
   background-color: #141E30;
-  background: linear-gradient(to right, #24243e, #141E30, #0f0c29); }
+  background: linear-gradient(to right, #141E30, #141E30, #141E30); }
   
   h1 {
   text-transform: Uppercase;
@@ -23,7 +23,7 @@ body {
   
   h1 {
   position: relative;
-  background: linear-gradient(to right, #24243e, #141E30, #0f0c29);
+  background: linear-gradient(to right, #141E30, #141E30, #141E30);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 

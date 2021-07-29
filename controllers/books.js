@@ -34,20 +34,12 @@ function create(req, res) {
   }
   const book = new Book(req.body)
   book.save()
-    .then(result => res.redirect('/'))
+    .then(result => res.redirect('/books'))
     .catch(err => {
       console.log(err)
       res.redirect('/books/new')
     })
 }
-
-// function show(req, res) {
-//   Book.findById(req.params.id)
-//   res.render('books/show', {
-//         title: 'Book Details', 
-//         book: book,
-//       })
-//     }
 
 function show(req, res) {
   Book.findById(req.params.id, function(err, book) {

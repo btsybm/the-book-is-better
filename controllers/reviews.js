@@ -12,7 +12,7 @@ export {
 function totalReviews (req, res) {
 
 
-  
+
 }
 
 
@@ -56,7 +56,7 @@ function create(req, res) {
   console.log(review)
   Movie.findById(req.params.id, function (err, movie) {
     if (!err) {
-      movie.preferred = review._id
+      movie.review.push(review._id)
       movie.save()
       res.redirect(`/movies/${movie._id}`)
 

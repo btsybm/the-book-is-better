@@ -42,11 +42,14 @@ function index(req, res) {
 
 function show(req, res) {
   Movie.findById(req.params.id)
-  .populate("preferred")
+  .populate('review')
   .then(movie => {
+    let userReview = movie.review.filter(review => review.addedBy._id.equals(req.user.profile._id))
+    console.log(userReview[0]);
     res.render('movies/show', {
       title: 'Movie Details',
-      movie: movie
+      movie: movie,
+      userReview: userReview[0]
     })
   })
 }
