@@ -30,7 +30,6 @@
             </ul>
           </li>
           </ul>
-
         <% if (user) { %>
         <a href="/auth/logout">
           <button type="submit">Logout</button>
@@ -46,7 +45,7 @@
 
 
       <form action='/movies/search' method='POST'>
-        <input name='search' type="search" placeholder='Search' aria-label='Search'>
+        <input name='search' type="search" placeholder='Search' style="text-transform:uppercase" aria-label='Search'>
         <select name="searchParam">
           <option value="movies">Movies & TV</option>
           <option value="books">Books</option>
@@ -54,6 +53,12 @@
         </select>
         <button type='submit'>Search</button>
       </form>    
+
+
+      <div>
+
+        
+      </div>
 
 
 

@@ -71,7 +71,6 @@ function show(req, res) {
 
 
 function search(req, res) {
-  console.log(req.body.search)
   let regex = new RegExp(req.body.search)
   if (req.body.searchParam === "movies") {
     Movie.find ({title: { $regex: regex, $options: "i" }})      
