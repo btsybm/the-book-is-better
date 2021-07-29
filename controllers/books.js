@@ -41,11 +41,18 @@ function create(req, res) {
     })
 }
 
+
+
 function show(req, res) {
-  Book.findById(req.params.id, function(err, book) {
-    res.render('books/show', {
-      title: 'Book Details',
-      book: book
+  Book.findById(req.params.id)
+  .then(book => {
+    Movie.find({sourceMaterial: book._id})
+    .then(movies => {
+      res.render('books/show', {
+        title: 'Book Details',
+        book: book,
+        movies: movies,
+      })
     })
   })
 }

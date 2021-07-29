@@ -37,8 +37,20 @@ function create(req, res) {
     })
 }
 
+// function index(req, res) {
+//   Movie.find({}, function(err, movies) {
+//     res.render('movies/index', {
+//       movies: movies,
+//       title: 'All Movies'
+//     })
+//   })
+// }
+
+
 function index(req, res) {
-  Movie.find({}, function(err, movies) {
+  Movie.find({})
+  .populate('sourceMaterial')
+  .then(movies => {
     res.render('movies/index', {
       movies: movies,
       title: 'All Movies'
