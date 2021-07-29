@@ -10,7 +10,7 @@
     <div><%= movie.format %></div>
     <div><%= movie.year %></div>
     <div>Based off the book <a href="/books/<%= movie?.sourceMaterial?._id %>" ><%= movie?.sourceMaterial?.title %></a> </div>
-    <div>by <%= movie?.sourceMaterial?.author.name %></div>
+    <div>by <%= movie?.sourceMaterial.author.name %></div>
   <br>
   <br>
 
@@ -64,37 +64,33 @@
 </form>
 <% } %>
 
+<br>
+<br>
 
-<h1>Comments</h1>
+<h3>All Comments</h3>
 
-
-<!-- <% let reviewInterval=0 %>
-<% if (movie.length> 0) { %>
-  <% movies.forEach(movie=> { %>
-    <% if (movieInterval % 2===0) { %>
+<% let reviewInterval=0 %>
+<% if (movie.review?.length> 0) { %>
+  <% movie.review.forEach(review => { %>
+    <% if (reviewInterval % 2===0) { %>
       <div>
         <% } %>
           <div>
             <div class='card'>
-              <a href="/movies/<%= movie._id %>">
                 <div class="container">
-                  <h4><%=movie.title %></h4>
-                  <p>Format: <%=movie.format %></p>
-                  <p>Year: <%= movie.year %></p>
+                  <p>Format: <%= review.comments %></p>
+                  <p>Year: <%= review.preferred %></p>
                 </div>
-              </a>
             </div>
           </div>
-          <% if (movieInterval % 2===1) { %>
+          <% if (reviewInterval % 2===1) { %>
       </div>
       <% } %>
-        <% movieInterval ++ %>
+        <% reviewInterval ++ %>
           <% }) %>
             <% } else { %>
-              <h3>No Comments</h3>
-              <% } %> -->
-
-
+              <h3>There are no comments yet.</h3>
+              <% } %>
 
 
 

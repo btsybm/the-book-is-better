@@ -9,11 +9,21 @@
   <section>
     <div><%= author.name %></div>
     
-    <div>Books: </div>
-   <!-- How to display all the books with this this name as author in Books -->
-    
-    <div>Adaptations:</div>
-    <!-- How to display all the adaptation of all the books by this author -->
+    <div>Books: 
+      <% books.forEach(book => { %>
+        <%= book.title %>
+        <%= book.year %> 
+        <p>Adaptations:</p>
+            <% movies.forEach(movie => { %> <br>
+            <a href="/movies/<%= movie._id %>"><%= movie.title %> </a>
+            <%= movie.format %> 
+            <%= movie.year %> 
+    <% }) %>
+  <% }) %> 
+      
+   
+
+
     
   </section>
 

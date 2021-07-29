@@ -23,7 +23,6 @@ const authorSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: Book
   },
-
   imageUrl: {
     type: String,
   },
