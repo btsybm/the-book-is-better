@@ -17,8 +17,8 @@ const movieSchema = new Schema({
     required: true
   },
   sourceMaterial: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: 'Book',
   },
   imageUrl: {
     type: String,

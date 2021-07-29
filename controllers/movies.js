@@ -13,10 +13,16 @@ export {
 }
 
 function newMovie(req, res) {
-  res.render('movies/new', {
+  Book.find({}, function(err, books) {
+    res.render('movies/new', {
     title: 'Add Movie or TV Show',
+    books: books,
+  })
+  
   })
 }
+
+
 
 function create(req, res) {
   for (let key in req.body) {
@@ -42,14 +48,11 @@ function index(req, res) {
 
 
 
-
 function show(req, res) {
- 
-
   Movie.findById(req.params.id)
   .populate('review')
+  .populate('sourceMaterial')
   .then(movie => {
-
     let moviePref = movie.review.filter(review =>
       review.preferred === 'book')
     const data = {

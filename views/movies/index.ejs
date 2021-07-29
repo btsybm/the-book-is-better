@@ -21,7 +21,7 @@
     <% movies.forEach((movie) => { %>
     <tr>
       <td><%= movie.title %></td>
-      <td><%= movie.sourceMaterial %></td>
+      <td><%= movie.sourceMaterial.title %></td>
       <td><%= movie.format %></td>
       <td><%= movie.year %></td>
       <td><a href="/movies/<%= movie._id %>">Details</a></td>

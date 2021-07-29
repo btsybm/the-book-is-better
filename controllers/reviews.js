@@ -1,25 +1,12 @@
 import { Review } from '../models/review.js'
 import { Movie } from '../models/movie.js'
+import { Book } from '../models/book.js'
 
 export {
   create,
   deleteReview as delete,
   update,
-  totalReviews
 }
-
-
-function totalReviews (req, res) {
-
-
-
-}
-
-
-
-
-
-
 
 
 

@@ -10,8 +10,15 @@
   <label for="title-input">Title:  <input type="text" name="title" id="title-input" style="text-transform:uppercase" required></label>
   <br>
 
-  <label for="source-material-input">Based off Book:  <input type="text" name="sourceMaterial" id="source-material-input" style="text-transform:uppercase" required></label>
+  <label for="source-material-input">Based off Book:  </label>
   <br>
+
+  <select name="sourceMaterial" >
+    <% books.forEach(function(book) { %>
+      <option value="<%= book._id %>"><%= book.title %></option>
+    <% }) %>
+  </select>
+  
   <p class='formAdd'>Book not in our system?  Add it <a class='formAdd' href="/books/new">here.</a></p>
 
 
