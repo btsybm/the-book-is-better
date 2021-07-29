@@ -13,12 +13,11 @@ export {
 }
 
 function newMovie(req, res) {
-  Book.find({}, function(err, books) {
+  Book.find({}, function (err, books) {
     res.render('movies/new', {
-    title: 'Add Movie or TV Show',
-    books: books,
-  })
-  
+      title: 'Add Movie or TV Show',
+      books: books,
+    })
   })
 }
 
@@ -37,15 +36,6 @@ function create(req, res) {
     })
 }
 
-// function index(req, res) {
-//   Movie.find({}, function(err, movies) {
-//     res.render('movies/index', {
-//       movies: movies,
-//       title: 'All Movies'
-//     })
-//   })
-// }
-
 
 function index(req, res) {
   Movie.find({})
@@ -63,8 +53,16 @@ function index(req, res) {
 function show(req, res) {
   Movie.findById(req.params.id)
   .populate('review')
-  .populate('sourceMaterial')
+  .populate({
+    path: 'sourceMaterial', 
+    model: 'Book',
+    populate: {
+      path: 'author',
+      model: 'Author'
+    }
+  })
   .then(movie => {
+    console.log(movie);
     let moviePref = movie.review.filter(review =>
       review.preferred === 'book')
     const data = {

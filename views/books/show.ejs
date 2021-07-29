@@ -7,7 +7,7 @@
   <!-- <h1><%= title %></h1> -->
 
   <section>
-    <div><%= book.title %> by <%= book.author %></div>
+    <div><%= book.title %> by <%= book.author.name %></div>
     <div>Published: <%= book.year %></div>
     
     <div>Adaptations: 
@@ -16,11 +16,11 @@
        <%= movie.format %> 
        <%= movie.year %> 
       <% }) %>
-    
-    
     </div>
-    <!-- <div>(how to display from movie model with title as sourceMaterial</div> -->
 
+    <div>
+      <p>Are we missing something?  Add a movie or TV show <a href="/movies/new">here.</a> </p>
+    </div>
     
   </section>
 

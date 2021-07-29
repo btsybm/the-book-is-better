@@ -13,20 +13,28 @@ export {
 
 
 function index(req, res) {
-  Book.find({}, function(err, books) {
+  Book.find({})
+  .populate('author')
+  .then(books => {
     res.render('books/index', {
       books: books,
-      title: 'All Books'
+      title: 'All Books',
     })
   })
 }
 
 
+
 function newBook(req, res) {
-  res.render('books/new', {
-    title: 'Add Book',
+  Author.find({}, function (err, authors) {
+    res.render('books/new', {
+      title: 'Add Book',
+      authors: authors,
+    })
   })
 }
+
+
 
 function create(req, res) {
   for (let key in req.body) {
@@ -43,16 +51,34 @@ function create(req, res) {
 
 
 
+// function show(req, res) {
+//   Book.findById(req.params.id)
+//   .then(book => {
+//     Movie.find({sourceMaterial: book._id})
+//     .then(movies => {
+//       res.render('books/show', {
+//         title: 'Book Details',
+//         book: book,
+//         movies: movies,
+//       })
+//     })
+//   })
+// }
+
+
+
 function show(req, res) {
   Book.findById(req.params.id)
-  .then(book => {
-    Movie.find({sourceMaterial: book._id})
-    .then(movies => {
-      res.render('books/show', {
-        title: 'Book Details',
-        book: book,
-        movies: movies,
-      })
+    .populate('author')
+    .then(book => {
+      Movie.find({ sourceMaterial: book._id })
+        .then(movies => {
+          res.render('books/show', {
+            title: 'Book Details',
+            book: book,
+            movies: movies,
+          })
+        })
     })
-  })
 }
+
