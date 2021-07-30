@@ -1,61 +1,47 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/add.css" />
 <%- include('../partials/nav') %>
+
 <main>
-  <!-- <h1><%= title %></h1> -->
-
-
 	<div class="box">
 		<h2>ADD MOVIE OR TV SHOW</h2>
 		<form action="/movies" method="POST">
-
 			<div class="inputBox">
 				<input type="text" name="title" id="title-input" required>
 				<label for="title-input">Title</label>
 			</div>
-
-
 			<div class="inputBox">
 				<label for="source-material-input">Book Based Off Of:</label>
-        <br>
-        <select name="sourceMaterial" >
-          <% books.forEach(function(book) { %>
-            <option value="<%= book._id %>"><%= book.title %></option>
-          <% }) %>
-        </select>
+				<br>
+				<select name="sourceMaterial">
+					<% books.forEach(function(book) { %>
+						<option value="<%= book._id %>">
+							<%= book.title %>
+						</option>
+						<% }) %>
+				</select>
 			</div>
-
-<br>
-
+			<br>
 			<div class="inputBox">
-        <label for="format-input">Format:</label>
-        <br>
-        <select name='format'>
-          <option value='Movie'>Movie</option>
-          <option value='TV Series'>TV Series</option>
-          <option value='Miniseries'>Miniseries</option>
-      </select>
+				<label for="format-input">Format:</label>
+				<br>
+				<select name='format'>
+					<option value='Movie'>Movie</option>
+					<option value='TV Series'>TV Series</option>
+					<option value='Miniseries'>Miniseries</option>
+				</select>
 			</div>
-<br>
-
+			<br>
 			<div class="inputBox">
 				<input type="number" name="year" id="year-input" min=1900 max=2030 required>
 				<label for="year-input">Year</label>
 			</div>
-
 			<input type="submit" name="" value="ADD">
-
-      <div>
-        <p class='formAdd'>Book not in our system?  Add it <a class='formAdd' href="/books/new">here.</a></p>
-      </div>
-
+			<div>
+				<p class='formAdd'>Book not in our system? Add it <a class='formAdd' href="/books/new">here.</a></p>
+			</div>
 		</form>
 	</div>
-
-
-</form>
-
-
 </main>
 
 <%- include("../partials/footer") %>

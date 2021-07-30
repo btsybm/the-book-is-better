@@ -1,41 +1,36 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/books/new.css" />
+<link rel="stylesheet" href="/stylesheets/add.css" />
 <%- include('../partials/nav') %>
 <main>
-  <!-- <h1><%= title %></h1> -->
-
-
-<h1>ADD BOOK</h1>
-
-<form action="/books" method="POST">
-
-  <label for="title-input">Title:  <input type="text" name="title" id="title-input" required></label>
-  <br>
-
-  <label for="author-input">Author:</label>
-  <select name="author" >
-    <% authors.forEach(function(author) { %>
-      <option value="<%= author._id %>"><%= author.name %></option>
-    <% }) %>
-  </select>
-
-
-
-  
-  <p class='formAdd'>Author not in our system?  Add them <a class='formAdd' href="/authors/new">here.</a></p>
-
-<br>
-
-  <label for="year-input">Year Published: <input type="number" name="year" id="year-input" max=2030 required></label>
-  <br>
-
-  <!-- <label for="image-url-input">Link to Book Cover Image:  <input type="text" placeholder="ex. https://i.imgur.com/.jpg" name="imageUrl" id="image-url-input"></label>
-  <br> -->
-  <button type="submit">Add Book</button>
-</form>
-
-
-
+  <div class="box">
+    <h2>ADD BOOK</h2>
+    <form action="/books" method="POST">
+      <div class="inputBox">
+        <input type="text" name="title" id="title-input" required>
+        <label for="title-input">Title</label>
+      </div>
+      <div class="inputBox">
+        <label for="author-input">Author:</label>
+        <br>
+        <select name="author">
+          <% authors.forEach(function(author) { %>
+            <option value="<%= author._id %>">
+              <%= author.name %>
+            </option>
+            <% }) %>
+        </select>
+      </div>
+      <div class="inputBox">
+        <input type="number" name="year" id="year-input" max=2030 required>
+        <label for="year-input">Year Published</label>
+      </div>
+      <input type="submit" name="" value="ADD BOOK">
+      <div>
+        <p class='formAdd'>Author not in our system? Add them <a class='formAdd' href="/authors/new">here.</a></p>
+      </div>
+    </form>
+  </div>
+  </form>
 </main>
 
 <%- include("../partials/footer") %>
