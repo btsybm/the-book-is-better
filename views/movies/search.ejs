@@ -2,22 +2,13 @@
 <link rel="stylesheet" href="/stylesheets/movie/search.css" />
 <%- include('../partials/nav') %>
 <main>
-
-
   <h1>Movie & TV Series Results:</h1>
-
   <% let movieInterval=0 %>
     <% if (movies.length> 0) { %>
       <% movies.forEach(movie=> { %>
         <% if (movieInterval % 2===0) { %>
           <div>
             <% } %>
-
-
-            
-
-
-
               <div>
                 <div class='card'>
                   <a href="/movies/<%= movie._id %>">
@@ -27,13 +18,6 @@
                   </a>
                 </div>
               </div>
-
-
-
-
-
-
-
               <% if (movieInterval % 2===1) { %>
           </div>
           <% } %>
@@ -42,15 +26,8 @@
                 <% } else { %>
                   <h3>No movies with that title.</h3>
                   <% } %>
-
   <br>
   <button id='button' style="background-color: transparent;"><a href="/movies/new">Add Movie or Show</a></button>
-
-  
-
-
-
-
 </main>
 
 <%- include("../partials/footer") %>

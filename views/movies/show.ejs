@@ -7,33 +7,30 @@
 
 <main>
 <div>
-  <h1><%= movie.title %></h1>
-  <h4>Based on the book <a href="/books/<%= movie?.sourceMaterial?._id %>" ><%= movie?.sourceMaterial?.title %></a> by <%= movie?.sourceMaterial.author.name %></h4>
-  <h4><%= movie.format %> - <%= movie.year %></h4>
+  <h1>
+    <%= movie.title %>
+  </h1>
+  <h4>Based on the book <a href="/books/<%= movie?.sourceMaterial?._id %>">
+      <%= movie?.sourceMaterial?.title %>
+    </a> by <%= movie?.sourceMaterial.author.name %>
+  </h4>
+  <h4>
+    <%= movie.format %> - <%= movie.year %>
+  </h4>
 </div>
-
-<br>
-<br>
 <br>
 
 
 <%- include('../partials/moviechart') %>
 
-<div>
-  
-<h4>Currently <%= data.moviePercentage.toFixed(0) %>% of voters prefer the movie over the book.</h4>
-
-</div>
+  <div>
+    <h4>Currently <%= data.moviePercentage.toFixed(0) %>% of voters prefer the movie over the book.</h4>
+  </div>
 
 <!-- <p class="percentage-circle circle-<%= data.moviePercentage.toFixed(0) %> circle-green"><span> <%= data.moviePercentage.toFixed(0) %>%</span></p> -->
 
-
-  
 <br>
 <br>
-<br>
-
-
 
 <div>
   <% if (!userReview) { %>
@@ -104,7 +101,6 @@
                 <div class='card'>
                   <div class="container">
                     <p>"<%= review.comments %>"</p>
-                    <!-- <p><%= review.preferred %></p> -->
                   </div>
                 </div>
               </div>
