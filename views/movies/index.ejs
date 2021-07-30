@@ -1,40 +1,25 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/books/new.css" />
+<link rel="stylesheet" href="/stylesheets/tables.css" />
 <%- include('../partials/nav') %>
 
 
 <main>
 
-<h1><%= title %></h1>
+<h1 class="center"><%= title %></h1>
 <table id="list">
-
-  <thead>
-    <tr>
-      <th>Title:</th>
-      <th>Based Off the Book:</th>
-      <th>Format:</th>
-      <th>Year:</th>
-    </tr>
-  </thead>
-
   <tbody>
     <% movies.forEach((movie) => { %>
     <tr>
-      <td><%= movie.title %></td>
-      <td><%= movie.sourceMaterial.title %></td>
+      <td><a href="/movies/<%= movie._id %>"><%= movie.title %></a> based on the book <%= movie.sourceMaterial.title %></td>
       <td><%= movie.format %></td>
       <td><%= movie.year %></td>
-      <td><a href="/movies/<%= movie._id %>">Details</a></td>
-
-
-
     </tr>
     <% }) %>
   </tbody>
 </table>
 
-<div>
-  <a href="/movies/new">Add Movie or TV Show</a>
+<div class='center'>
+  <a href="/movies/new" class="button">ADD MOVIE OR SHOW<i class="icon-chevron-right"></i></a>
 </div>
 
 </main>
