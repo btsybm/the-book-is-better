@@ -19,19 +19,15 @@
   </h4>
 </div>
 <br>
-
-
 <%- include('../partials/moviechart') %>
 
   <div>
-    <h4>Currently <%= data.moviePercentage.toFixed(0) %>% of voters prefer the movie over the book.</h4>
+    <h4>Currently <%= data.moviePercentage.toFixed(0) %>% of voters prefer the book over the <%= movie.format %>.</h4>
   </div>
 
 <!-- <p class="percentage-circle circle-<%= data.moviePercentage.toFixed(0) %> circle-green"><span> <%= data.moviePercentage.toFixed(0) %>%</span></p> -->
-
 <br>
 <br>
-
 <div>
   <% if (!userReview) { %>
     <form class="review" action="/reviews/<%= movie._id %>" method="POST">
@@ -50,7 +46,7 @@
     </form>
 
     <% } else { %>
-
+      
       <!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
       <form class="review" action="/reviews/<%= userReview._id %>?_method=PUT" method="POST">
         <label>YOUR PREVIOUS VOTE:
