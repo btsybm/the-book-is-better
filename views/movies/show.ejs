@@ -12,16 +12,26 @@
   <h4><%= movie.format %> - <%= movie.year %></h4>
 </div>
 
+<br>
+<br>
+<br>
 
+
+<%- include('../partials/moviechart') %>
+
+<div>
+  
+<h4>Currently <%= data.moviePercentage.toFixed(0) %>% of voters prefer the movie over the book.</h4>
+
+</div>
 
 <!-- <p class="percentage-circle circle-<%= data.moviePercentage.toFixed(0) %> circle-green"><span> <%= data.moviePercentage.toFixed(0) %>%</span></p> -->
 
 
   
-
-<%- include('../partials/moviechart') %>
-
-
+<br>
+<br>
+<br>
 
 
 
@@ -46,7 +56,7 @@
 
       <!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
       <form class="review" action="/reviews/<%= userReview._id %>?_method=PUT" method="POST">
-        <label>PREVIOUS VOTE:
+        <label>YOUR PREVIOUS VOTE:
           <% if (userReview?.preferred==='book' ) { %>
             <select name='preferred'>
               <option value='book'>Book</option>
@@ -63,51 +73,49 @@
               </select>
               <% } %>
         </label> <br>
-        <label for="">PREVIOUS COMMENTS:</label>
+        <label for="">YOUR PREVIOUS COMMENTS:</label>
         <br>
         <textarea name="comments" placeholder="<%= userReview.comments %>"></textarea>
         <br>
         <br>
-        <input type="submit" name="" value="UPDATE REVIEW">
+        <input type="submit" name="" value="UPDATE VOTE">
       </form>
       <br>
       <form action="/reviews/<%= userReview._id %>?_method=DELETE" method="POST">
-        <input type="submit" name="" value="DELETE REVIEW">
+        <input type="submit" name="" value="DELETE VOTE">
       </form>
       <% } %>
 </div>
 
 <br>
 <br>
+<br>
 
 
 <div>
-
-<h1>All Comments</h1>
-
-<% let reviewInterval=0 %>
-<% if (movie.review?.length> 0) { %>
-  <% movie.review.forEach(review => { %>
-    <% if (reviewInterval % 2===0) { %>
-      <div>
-        <% } %>
+  <h2>All Comments</h2>
+  <% let reviewInterval=0 %>
+    <% if (movie.review?.length> 0) { %>
+      <% movie.review.forEach(review=> { %>
+        <% if (reviewInterval % 2===0) { %>
           <div>
-            <div class='card'>
-                <div class="container">
-                  <p>"<%= review.comments %>"</p>
-                  <!-- <p><%= review.preferred %></p> -->
+            <% } %>
+              <div>
+                <div class='card'>
+                  <div class="container">
+                    <p>"<%= review.comments %>"</p>
+                    <!-- <p><%= review.preferred %></p> -->
+                  </div>
                 </div>
-            </div>
+              </div>
+              <% if (reviewInterval % 2===1) { %>
           </div>
-          <% if (reviewInterval % 2===1) { %>
-      </div>
-      <% } %>
-        <% reviewInterval ++ %>
-          <% }) %>
-            <% } else { %>
-              <h3>There are no comments yet.</h3>
-              <% } %>
-
+          <% } %>
+            <% reviewInterval ++ %>
+              <% }) %>
+                <% } else { %>
+                  <h3>There are no comments yet.</h3>
+                  <% } %>
 </div>
 
 </main>

@@ -18,7 +18,9 @@
   height: 150px;
   background-color: #ffb802;
   border-radius: 50%;
-  margin: 30px;
+  /* margin: 100px; */
+  margin-left: 46%;
+  margin-right: 45%;
 }
 .percentage-circle:before, .percentage-circle:after {
   content: "";
@@ -38,7 +40,7 @@
   bottom: 0;
   margin: auto;
   border-radius: 50%;
-  background: white;
+  background: #141E30;
   width: 70px;
   height: 70px;
   z-index: 10;
