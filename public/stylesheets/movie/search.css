@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+body {
+  background: #141E30;
+  color: #ECECEC;
+  font-family: 'Oswald', sans-serif;
+
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+
+
+  /* button */
+  button {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  select {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+
+  input {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+
+ h1 {
+   text-transform: uppercase;
+ }
+

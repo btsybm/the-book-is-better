@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/books/new.css" />
+<link rel="stylesheet" href="/stylesheets/movie/search.css" />
 <%- include('../partials/nav') %>
 <main>
 
@@ -12,17 +12,28 @@
         <% if (movieInterval % 2===0) { %>
           <div>
             <% } %>
+
+
+            
+
+
+
               <div>
                 <div class='card'>
                   <a href="/movies/<%= movie._id %>">
                     <div class="container">
-                      <h4><%=movie.title %></h4>
-                      <p>Format: <%=movie.format %></p>
-                      <p>Year: <%= movie.year %></p>
+                      <h4><%=movie.title %> (<%=movie.format %> <%= movie.year %>)</h4>
                     </div>
                   </a>
                 </div>
               </div>
+
+
+
+
+
+
+
               <% if (movieInterval % 2===1) { %>
           </div>
           <% } %>
@@ -33,7 +44,9 @@
                   <% } %>
 
   <br>
-  <button><a href="/movies/new">Add Movie or Show</a></button>
+  <button id='button' style="background-color: transparent;"><a href="/movies/new">Add Movie or Show</a></button>
+
+  
 
 
 

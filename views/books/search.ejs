@@ -1,11 +1,12 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/books/new.css" />
+<link rel="stylesheet" href="/stylesheets/tables.css" />
 <%- include('../partials/nav') %>
 <main>
   <h1>Book Search Results:</h1>
 
-  <% let bookInterval=0 %>
-    <% if (books.length> 0) { %>
+
+
+
       <% books.forEach(book=> { %>
         <% if (bookInterval % 2===0) { %>
           <div>
@@ -26,7 +27,7 @@
           <% } %>
             <% bookInterval ++ %>
               <% }) %>
-                <% } else { %>
+                <%  else { %>
                   <h3>No books with that title.</h3>
                   <% } %>
 
