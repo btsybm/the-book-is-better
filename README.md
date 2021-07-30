@@ -2,9 +2,9 @@
 ## Objective:
 ### I have always been an avid book reader and movie/tv consumer so I love comparing a book to it's adaptation.  As most people have experienced, one is usually drastically better than the other.  The intent of my app is to create a resource that tracks adaptations, lets people chime in on which they prefer and to help someone decide whether a book or movie is worth spending their time on.
 ## Getting Started:
-### Getting Started: [Here!]
-* [Deplayed App](https://thebookisbetter.herokuapp.com/)
-* [Trello Board] (https://trello.com/b/w2e1ofRX/the-book-is-better)
+### Getting Started: 
+* [Deployed App](https://thebookisbetter.herokuapp.com/)
+* [Trello Board](https://trello.com/b/w2e1ofRX/the-book-is-better)
 ### Instructions: 
 Seach for a movie, tv show or book and go to it's page to see what other peoples opinion are on it's comparison to the book.  If you've read and watched it add your's.  If the movie isn't already in the database, add it and cast your vote.  You can also click on a books page to see all of the movies and shows linked to it.
 ## Screenshot:
