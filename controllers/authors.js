@@ -2,8 +2,6 @@ import { Author } from '../models/author.js'
 import { Book } from '../models/book.js'
 import { Movie } from '../models/movie.js'
 
-
-
 export {
   newAuthor as new,
   create,
@@ -23,7 +21,7 @@ function create(req, res) {
   }
   const author = new Author(req.body)
   author.save()
-    .then(result => res.redirect('/'))
+    .then(result => res.redirect('/books/new'))
     .catch(err => {
       console.log(err)
       res.redirect('/authors/new')
@@ -40,7 +38,7 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Author.findById(req.params.id, function(err, author) {
+  Author.findById(req.params.id, function (err, author) {
     res.render('authors/show', {
       title: 'Author Details',
       author: author

@@ -15,7 +15,23 @@
 ## Technologies Used:
 
 ## Attributions:
-<!-- * CSS neon font inspiration: [The Frontend Dev](https://codepen.io/valhead/pen/djHoD?editors=1100) -->
+
+
+<!-- Ben
+Blake
+Thiago
+David
+The mysterious ? that solves all my problems
+Bootrap - for wasting my time 
+
+Home page logo: https://codepen.io/davidlillo/pen/wZRagx
+
+
+
+-->
+
+
+
 ## Next Steps:
 * Allow users to view an authors page and see all of their books that have been adapted and what those adaptations are.
 

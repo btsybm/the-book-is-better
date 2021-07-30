@@ -4,7 +4,6 @@ import { Author } from '../models/author.js'
 import { Review } from '../models/review.js'
 import { response } from 'express'
 
-
 export {
   newMovie as new,
   create,
@@ -22,8 +21,6 @@ function newMovie(req, res) {
   })
 }
 
-
-
 function create(req, res) {
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
@@ -37,49 +34,46 @@ function create(req, res) {
     })
 }
 
-
 function index(req, res) {
   Movie.find({})
-  .populate('sourceMaterial')
-  .then(movies => {
-    res.render('movies/index', {
-      movies: movies,
-      title: 'All Movies'
+    .populate('sourceMaterial')
+    .then(movies => {
+      res.render('movies/index', {
+        movies: movies,
+        title: 'All Movies'
+      })
     })
-  })
 }
-
-
 
 function show(req, res) {
   Movie.findById(req.params.id)
-  .populate('review')
-  .populate({
-    path: 'sourceMaterial', 
-    model: 'Book',
-    populate: {
-      path: 'author',
-      model: 'Author'
-    }
-  })
-  .then(movie => {
-    console.log(movie);
-    let moviePref = movie.review.filter(review =>
-      review.preferred === 'book')
-    const data = {
-      totalRev: movie.review.length,
-      moviePref: moviePref?.length,
-      bookPref: (movie.review.length) - (moviePref.length),
-      moviePercentage: ((moviePref?.length / movie.review.length) * 100)
-    }
-    let userReview = movie.review.filter(review => review.addedBy._id.equals(req.user.profile._id))
-    res.render('movies/show', {
-      title: 'Movie Details',
-      movie: movie,
-      userReview: userReview[0],
-      data: data
+    .populate('review')
+    .populate({
+      path: 'sourceMaterial',
+      model: 'Book',
+      populate: {
+        path: 'author',
+        model: 'Author'
+      }
     })
-  })
+    .then(movie => {
+      console.log(movie);
+      let moviePref = movie.review.filter(review =>
+        review.preferred === 'book')
+      const data = {
+        totalRev: movie.review.length,
+        moviePref: moviePref?.length,
+        bookPref: (movie.review.length) - (moviePref.length),
+        moviePercentage: ((moviePref?.length / movie.review.length) * 100)
+      }
+      let userReview = movie.review.filter(review => review.addedBy._id.equals(req.user.profile._id))
+      res.render('movies/show', {
+        title: 'Movie Details',
+        movie: movie,
+        userReview: userReview[0],
+        data: data
+      })
+    })
 }
 
 

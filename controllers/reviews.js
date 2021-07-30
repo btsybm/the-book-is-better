@@ -8,8 +8,6 @@ export {
   update,
 }
 
-
-
 function update(req, res) {
   Review.findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
@@ -19,7 +17,6 @@ function update(req, res) {
       console.log(err)
     })
 }
-
 
 function deleteReview(req, res) {
   console.log("are we deleting");
@@ -53,8 +50,3 @@ function create(req, res) {
     }
   })
 }
-
-
-
-
-

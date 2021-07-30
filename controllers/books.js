@@ -2,8 +2,6 @@ import { Book } from '../models/book.js'
 import { Author } from '../models/author.js'
 import { Movie } from '../models/movie.js'
 
-
-
 export {
   newBook as new,
   create,
@@ -11,19 +9,16 @@ export {
   show,
 }
 
-
 function index(req, res) {
   Book.find({})
-  .populate('author')
-  .then(books => {
-    res.render('books/index', {
-      books: books,
-      title: 'All Books',
+    .populate('author')
+    .then(books => {
+      res.render('books/index', {
+        books: books,
+        title: 'All Books',
+      })
     })
-  })
 }
-
-
 
 function newBook(req, res) {
   Author.find({}, function (err, authors) {
@@ -33,8 +28,6 @@ function newBook(req, res) {
     })
   })
 }
-
-
 
 function create(req, res) {
   for (let key in req.body) {
@@ -48,7 +41,6 @@ function create(req, res) {
       res.redirect('/books/new')
     })
 }
-
 
 function show(req, res) {
   Book.findById(req.params.id)
