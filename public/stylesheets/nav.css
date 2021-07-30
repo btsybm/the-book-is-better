@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 .main-nav {
   display: flex;
   color: white;
   border-radius: 3px;
   padding: 1em;
-  font-family: sans-serif;
+  font-family: 'Oswald', sans-serif;
   background: linear-gradient(to right, #141E30, #141E30, #141E30); 
 }
 .main-nav > ul {
