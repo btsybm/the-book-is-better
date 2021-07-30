@@ -1,9 +1,6 @@
 import mongoose from 'mongoose'
 import { Profile } from './profile.js'
 import { Review } from './review.js'
-// import { Review } from './review.js'
-
-
 
 export {
   Movie,

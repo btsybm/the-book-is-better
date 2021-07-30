@@ -1,23 +1,21 @@
 <%- include('../partials/html-head') %>
+<!-- <link rel="stylesheet" href="/stylesheets/donut.css" /> -->
 <link rel="stylesheet" href="/stylesheets/movie/show.css" />
-<link rel="stylesheet" href="/stylesheets/donut.css" />
+
 <%- include('../partials/nav') %>
 
 
 <main>
-
 <div>
   <h1><%= movie.title %></h1>
-  <h3><%= movie.format %> - <%= movie.year %></h3>
-<h3>Based on the book <a href="/books/<%= movie?.sourceMaterial?._id %>" ><%= movie?.sourceMaterial?.title %></a> by <%= movie?.sourceMaterial.author.name %></h3>
+  <h4>Based on the book <a href="/books/<%= movie?.sourceMaterial?._id %>" ><%= movie?.sourceMaterial?.title %></a> by <%= movie?.sourceMaterial.author.name %></h4>
+  <h4><%= movie.format %> - <%= movie.year %></h4>
 </div>
 
 
-<div>
 
-<!-- <div class="percentage-circle circle-<%= data.moviePercentage.toFixed(0) %> circle-green"><span> <%= data.moviePercentage.toFixed(0) %>%</span></div> -->
+<!-- <p class="percentage-circle circle-<%= data.moviePercentage.toFixed(0) %> circle-green"><span> <%= data.moviePercentage.toFixed(0) %>%</span></p> -->
 
-</div>
 
   
 
@@ -27,62 +25,57 @@
 
 
 
-
-
-
-
-
-
 <div>
-
   <% if (!userReview) { %>
-
     <form class="review" action="/reviews/<%= movie._id %>" method="POST">
-      <h3>Do you think the book or <%= movie.format %> is better?</h3>
-      <h6>(Don't be a dick and vote if you haven't read the book.)</h6>
       <label>Which is better?
         <!-- change to radio buttons -->
         <select name='preferred'>
-            <option value='book'>Book</option>
-            <option value='movie'><%= movie.format %></option>
+          <option value='book'>Book</option>
+          <option value='movie'>
+            <%= movie.format %>
+          </option>
         </select>
       </label> <br>
       <textarea name="comments" placeholder="Care to elaborate?"></textarea>
       <br>
-      <button type='submit'>Submit Vote & Review</button>
+      <input type="submit" name="" value="Add Review">
     </form>
-    <% } else { %>
-    
-    <!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
-    <h3>Your Review</h3>
-    <form class="review" action="/reviews/<%= userReview._id %>?_method=PUT" method="POST">
-      <label>You prefer the
-        <% if (userReview?.preferred==='book' ) { %>
-          <select name='preferred'>
-            <option value='book'>Book</option>
-            <option value='movie'><%= movie.format %></option>
-          </select>
-          <% } else { %>
-            <select name='preferred'>
-              <option value='movie'><%= movie.format %></option>
-              <option value='book'>Book</option>
-            </select>
-            <% } %>
-      </label> <br>
-    <label for="">Previous comments:</label>
-      <input name="comments" value="<%= userReview.comments %>">
-      <br>
-      <button type='submit'>Save Changes</button>
-    </form>
-    <br>
-    
-    <form action="/reviews/<%= userReview._id %>?_method=DELETE" method="POST">
-      <button type='submit'>Delete Review</button>
-    </form>
-    <% } %>
-  
-</div>
 
+    <% } else { %>
+
+      <!-- Edit form that shows up if they have submitted a review - have it populate with their previous submission -->
+      <form class="review" action="/reviews/<%= userReview._id %>?_method=PUT" method="POST">
+        <label>PREVIOUS VOTE:
+          <% if (userReview?.preferred==='book' ) { %>
+            <select name='preferred'>
+              <option value='book'>Book</option>
+              <option value='movie'>
+                <%= movie.format %>
+              </option>
+            </select>
+            <% } else { %>
+              <select name='preferred'>
+                <option value='movie'>
+                  <%= movie.format %>
+                </option>
+                <option value='book'>Book</option>
+              </select>
+              <% } %>
+        </label> <br>
+        <label for="">PREVIOUS COMMENTS:</label>
+        <br>
+        <textarea name="comments" placeholder="<%= userReview.comments %>"></textarea>
+        <br>
+        <br>
+        <input type="submit" name="" value="UPDATE REVIEW">
+      </form>
+      <br>
+      <form action="/reviews/<%= userReview._id %>?_method=DELETE" method="POST">
+        <input type="submit" name="" value="DELETE REVIEW">
+      </form>
+      <% } %>
+</div>
 
 <br>
 <br>
@@ -90,7 +83,7 @@
 
 <div>
 
-<h3>All Comments</h3>
+<h1>All Comments</h1>
 
 <% let reviewInterval=0 %>
 <% if (movie.review?.length> 0) { %>
@@ -101,7 +94,7 @@
           <div>
             <div class='card'>
                 <div class="container">
-                  <p><%= review.comments %></p>
+                  <p>"<%= review.comments %>"</p>
                   <!-- <p><%= review.preferred %></p> -->
                 </div>
             </div>

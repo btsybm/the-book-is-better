@@ -2,6 +2,8 @@
    <link rel="stylesheet" href="/stylesheets/nav.css">
    <% } %> 
 
+   <link rel="stylesheet" href="/stylesheets/nav.css">
+
 </head>
 <body>
     <nav class="main-nav">
@@ -22,26 +24,9 @@
               <li><a href="/movies/new">Add Movie or Show</a></li>        
             </ul>
           </li>
-          <!-- <li>
-            <a>Authors</a>
-            <ul class="submenu">
-              <li><a href="/authors">All Authors</a></li>
-              <li><a href="/authors/new">Add Author</a></li>
-            </ul>
-          </li> -->
           </ul>
-        <% if (user) { %>
-        <a href="/auth/logout">
-          <button type="submit">Logout</button>
-        </a>
-        <% } else { %>
-          <a href="/auth/google" class="siwg-link">
-            <button type="submit" class="siwg">
-              Login
-              <img id="siwg-image" alt="Sign in with Google" />
-            </button>
-          </a>
-          <% } %>  
+
+
 
 
       <form action='/movies/search' method='POST'>
@@ -49,11 +34,20 @@
         <select name="searchParam">
           <option value="movies">Movies & TV</option>
           <option value="books">Books</option>
-          <!-- <option value="authors">Authors</option> -->
         </select>
-        <button type='submit'>Search</button>
       </form>    
 
-
+      
+  <% if (user) { %>
+    <a href="/auth/logout">
+      <button type="submit">Logout</button>
+    </a>
+    <% } else { %>
+      <a href="/auth/google" >
+        <button type="submit" >
+          Login
+        </button>
+      </a>
+      <% } %> 
 
     </nav>

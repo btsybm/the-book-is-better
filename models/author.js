@@ -2,8 +2,6 @@ import mongoose from 'mongoose'
 import { Profile } from './profile.js'
 import { Book } from './book.js'
 
-
-
 export {
   Author,
 }

@@ -76,8 +76,6 @@ function show(req, res) {
     })
 }
 
-
-
 function search(req, res) {
   let regex = new RegExp(req.body.search)
   if (req.body.searchParam === "movies") {

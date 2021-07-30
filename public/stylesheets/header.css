@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
 
+* {
+  font-family: 'Oswald', sans-serif;
+}
 
 body {
   display: flex;
@@ -60,11 +63,12 @@ body {
 
 p {
   font-size: 2rem;
-  font-family: Arial, sans-serif
+  font-family: 'Oswald', sans-serif;
 }
 
 img {
   display: block;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   width: 65%;
