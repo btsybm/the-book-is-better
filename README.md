@@ -20,7 +20,6 @@ Seach for a movie, tv show or book and go to it's page to see what other peoples
 * Node.js
 * Express
 * Oauth
-
 ## Attributions:
 * Ben Manley for the late night de-bugging
 * Blake Romano for the intellectual and emotional support
@@ -30,10 +29,8 @@ Seach for a movie, tv show or book and go to it's page to see what other peoples
 * Home Page Logo: https://codepen.io/davidlillo/pen/wZRagx
 * Form: https://codepen.io/Dru-Go/pen/jONobQB?editors=1100
 * Nav Bar Dropdown: https://codepen.io/catalinred/pen/kbscx
-
-
-
 ## Next Steps:
+* Make css completely responsive
 * Create author page that allows user to see all of the books by that author and their adaptations.
 * Add a random generator page so that user can get a book or movie suggestion at random.
 * Add user page so that a user can see all of the movie and shows they've voted on.
